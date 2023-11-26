@@ -133,7 +133,7 @@ class VatNumberValidationResultTest extends TestCase
                     'requestDate' => '',
                     'isValid' => true,
                     'name' => null,
-                    'address' => null,
+                    'address' => 'some address',
                 ],
                 'expectedData' => [
                     'countryCode' => 'DE',
