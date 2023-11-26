@@ -13,6 +13,11 @@ class VatNumber
         $this->vatNumber = $vatNumber;
     }
 
+    public static function create(string $countryCode, string $vatNumber): self
+    {
+        return new self($countryCode, $vatNumber);
+    }
+
     public function getCountryCode(): string
     {
         return $this->countryCode;
