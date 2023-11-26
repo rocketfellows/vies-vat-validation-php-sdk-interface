@@ -9,6 +9,14 @@ use PHPUnit\Framework\TestCase;
  */
 class VatNumberTest extends TestCase
 {
+    /**
+     * @dataProvider getCreateVatNumberProvidedData
+     */
+    public function testCreate(string $countryCode, string $vatNumberValue, VatNumber $expectedVatNumber): void
+    {
+        $this->assertEquals($expectedVatNumber, VatNumber::create($countryCode, $vatNumberValue));
+    }
+
     public function getCreateVatNumberProvidedData(): array
     {
         return [
