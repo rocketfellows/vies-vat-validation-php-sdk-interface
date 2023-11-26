@@ -9,4 +9,13 @@ use PHPUnit\Framework\TestCase;
  */
 class VatNumberTest extends TestCase
 {
+    public function getVatNumberProvidedData(): array
+    {
+        return [
+            'country code not empty, vat number not empty' => [
+                'countryCode' => 'DE',
+                'vatNumber' => 'foo1234bar',
+            ],
+        ];
+    }
 }
