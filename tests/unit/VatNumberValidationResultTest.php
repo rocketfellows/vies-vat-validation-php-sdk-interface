@@ -11,6 +11,28 @@ use rocketfellows\ViesVatValidationInterface\VatNumber;
  */
 class VatNumberValidationResultTest extends TestCase
 {
+    /**
+     * @dataProvider getVatNumberValidationResultProvidedData
+     */
+    public function testCreateNewVatNumberValidationResult(array $resultData, array $expectedData): void
+    {
+        $vatNumberValidationResult = new VatNumberValidationResult(
+            $resultData['vatNumber'],
+            $resultData['requestDate'],
+            $resultData['isValid'],
+            $resultData['name'],
+            $resultData['address'],
+        );
+
+        $this->assertEquals($expectedData['countryCode'], $vatNumberValidationResult->getCountryCode());
+        $this->assertEquals($expectedData['vatNumber'], $vatNumberValidationResult->getVatNumber());
+        $this->assertEquals($expectedData['requestDate'], $vatNumberValidationResult->getRequestDate());
+        $this->assertEquals($expectedData['requestDateString'], $vatNumberValidationResult->getRequestDateString());
+        $this->assertEquals($expectedData['isValid'], $vatNumberValidationResult->isValid());
+        $this->assertEquals($expectedData['name'], $vatNumberValidationResult->getName());
+        $this->assertEquals($expectedData['address'], $vatNumberValidationResult->getAddress());
+    }
+
     public function getVatNumberValidationResultProvidedData(): array
     {
         return [
@@ -26,6 +48,7 @@ class VatNumberValidationResultTest extends TestCase
                     'countryCode' => 'DE',
                     'vatNumber' => 'foo',
                     'requestDate' => new DateTime('2023-11-26 23:23:23'),
+                    'requestDateString' => '2023-11-26 23:23:23',
                     'isValid' => true,
                     'name' => 'some name',
                     'address' => 'some address',
@@ -43,6 +66,7 @@ class VatNumberValidationResultTest extends TestCase
                     'countryCode' => 'DE',
                     'vatNumber' => 'foo',
                     'requestDate' => new DateTime('2023-11-26 23:23:23'),
+                    'requestDateString' => '2023-11-26 23:23:23',
                     'isValid' => false,
                     'name' => 'some name',
                     'address' => 'some address',
@@ -60,6 +84,7 @@ class VatNumberValidationResultTest extends TestCase
                     'countryCode' => 'DE',
                     'vatNumber' => 'foo',
                     'requestDate' => null,
+                    'requestDateString' => '',
                     'isValid' => true,
                     'name' => '',
                     'address' => '',
@@ -77,6 +102,7 @@ class VatNumberValidationResultTest extends TestCase
                     'countryCode' => 'DE',
                     'vatNumber' => 'foo',
                     'requestDate' => null,
+                    'requestDateString' => 'foo',
                     'isValid' => true,
                     'name' => '',
                     'address' => '',
@@ -94,6 +120,7 @@ class VatNumberValidationResultTest extends TestCase
                     'countryCode' => 'DE',
                     'vatNumber' => 'foo',
                     'requestDate' => null,
+                    'requestDateString' => '',
                     'isValid' => true,
                     'name' => null,
                     'address' => null,
@@ -111,6 +138,7 @@ class VatNumberValidationResultTest extends TestCase
                     'countryCode' => 'DE',
                     'vatNumber' => 'foo',
                     'requestDate' => null,
+                    'requestDateString' => '',
                     'isValid' => true,
                     'name' => null,
                     'address' => 'some address',
