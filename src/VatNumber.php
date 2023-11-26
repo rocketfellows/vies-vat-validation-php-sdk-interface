@@ -12,4 +12,14 @@ class VatNumber
         $this->countryCode = $countryCode;
         $this->vatNumber = $vatNumber;
     }
+
+    public function getCountryCode(): string
+    {
+        return $this->countryCode;
+    }
+
+    public function getVatNumber(): string
+    {
+        return $this->vatNumber;
+    }
 }
