@@ -3,6 +3,7 @@
 namespace rocketfellows\ViesVatValidationInterface\tests\unit;
 
 use PHPUnit\Framework\TestCase;
+use rocketfellows\ViesVatValidationInterface\VatNumber;
 
 /**
  * @group vies-vat-validation-interface
