@@ -20,6 +20,13 @@ class VatNumberValidationResultTest extends TestCase
                 'name' => 'some name',
                 'address' => 'some address',
             ],
+            'request date set, vat is invalid, name set, address set' => [
+                'vatNumber' => new VatNumber('DE', 'foo'),
+                'requestDate' => '2023-11-26 23:23:23',
+                'isValid' => false,
+                'name' => 'some name',
+                'address' => 'some address',
+            ],
         ];
     }
 }
