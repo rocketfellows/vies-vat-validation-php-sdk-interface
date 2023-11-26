@@ -5,6 +5,7 @@ namespace rocketfellows\ViesVatValidationInterface\tests\unit;
 use DateTime;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\ViesVatValidationInterface\VatNumber;
+use rocketfellows\ViesVatValidationInterface\VatNumberValidationResult;
 
 /**
  * @group vies-vat-validation-interface
