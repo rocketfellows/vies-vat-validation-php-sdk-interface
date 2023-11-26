@@ -99,6 +99,23 @@ class VatNumberValidationResultTest extends TestCase
                     'address' => null,
                 ],
             ],
+            'request date empty, vat is valid, name not set, address set' => [
+                'resultData' => [
+                    'vatNumber' => new VatNumber('DE', 'foo'),
+                    'requestDate' => '',
+                    'isValid' => true,
+                    'name' => null,
+                    'address' => null,
+                ],
+                'expectedData' => [
+                    'countryCode' => 'DE',
+                    'vatNumber' => 'foo',
+                    'requestDate' => null,
+                    'isValid' => true,
+                    'name' => null,
+                    'address' => 'some address',
+                ],
+            ],
         ];
     }
 }
