@@ -9,16 +9,27 @@ use PHPUnit\Framework\TestCase;
  */
 class VatNumberTest extends TestCase
 {
+    /**
+     * @dataProvider getVatNumberProvidedData
+     */
+    public function testCreateNewVatNumber(string $countryCode, string $vatNumberValue): void
+    {
+        $vatNumber = new VatNumber($countryCode, $vatNumberValue);
+
+        $this->assertEquals($countryCode, $vatNumber->getCountryCode());
+        $this->assertEquals($vatNumberValue, $vatNumber->getVatNumber());
+    }
+
     public function getVatNumberProvidedData(): array
     {
         return [
             'country code not empty, vat number not empty' => [
                 'countryCode' => 'DE',
-                'vatNumber' => 'foo1234bar',
+                'vatNumberValue' => 'foo1234bar',
             ],
             'country code empty, vat number empty' => [
                 'countryCode' => '',
-                'vatNumber' => '',
+                'vatNumberValue' => '',
             ],
         ];
     }
