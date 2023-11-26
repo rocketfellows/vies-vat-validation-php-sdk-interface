@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1701008995">
-  <project timestamp="1701008995">
+<coverage generated="1701011536">
+  <project timestamp="1701011536">
     <file name="/app/src/VatNumber.php">
       <class name="rocketfellows\ViesVatValidationInterface\VatNumber" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
@@ -10,11 +10,39 @@
       <line num="13" type="stmt" count="4"/>
       <line num="16" type="method" name="create" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="18" type="stmt" count="2"/>
-      <line num="21" type="method" name="getCountryCode" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="23" type="stmt" count="2"/>
-      <line num="26" type="method" name="getVatNumber" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="28" type="stmt" count="2"/>
+      <line num="21" type="method" name="getCountryCode" visibility="public" complexity="1" crap="1" count="10"/>
+      <line num="23" type="stmt" count="10"/>
+      <line num="26" type="method" name="getVatNumber" visibility="public" complexity="1" crap="1" count="10"/>
+      <line num="28" type="stmt" count="10"/>
       <metrics loc="31" ncloc="31" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
+    </file>
+    <file name="/app/src/VatNumberValidationResult.php">
+      <class name="rocketfellows\ViesVatValidationInterface\VatNumberValidationResult" namespace="global">
+        <metrics complexity="10" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="22" coveredelements="22"/>
+      </class>
+      <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="23" type="stmt" count="8"/>
+      <line num="24" type="stmt" count="8"/>
+      <line num="25" type="stmt" count="8"/>
+      <line num="26" type="stmt" count="8"/>
+      <line num="27" type="stmt" count="8"/>
+      <line num="30" type="method" name="getVatNumber" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="32" type="stmt" count="8"/>
+      <line num="35" type="method" name="getCountryCode" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="37" type="stmt" count="8"/>
+      <line num="40" type="method" name="getRequestDateString" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="42" type="stmt" count="8"/>
+      <line num="45" type="method" name="getRequestDate" visibility="public" complexity="3" crap="3" count="8"/>
+      <line num="48" type="stmt" count="8"/>
+      <line num="49" type="stmt" count="1"/>
+      <line num="50" type="stmt" count="1"/>
+      <line num="54" type="method" name="isValid" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="56" type="stmt" count="8"/>
+      <line num="59" type="method" name="getName" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="61" type="stmt" count="8"/>
+      <line num="64" type="method" name="getAddress" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="66" type="stmt" count="8"/>
+      <metrics loc="69" ncloc="69" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="22" coveredelements="22"/>
     </file>
     <file name="/app/src/exceptions/VatNumberValidationException.php">
       <class name="rocketfellows\ViesVatValidationInterface\exceptions\VatNumberValidationException" namespace="global">
@@ -106,6 +134,6 @@
       </class>
       <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="16" loc="155" ncloc="155" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
+    <metrics files="17" loc="224" ncloc="224" classes="2" methods="12" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="31" coveredelements="31"/>
   </project>
 </coverage>
