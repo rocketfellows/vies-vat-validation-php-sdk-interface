@@ -16,6 +16,10 @@ class VatNumberTest extends TestCase
                 'countryCode' => 'DE',
                 'vatNumber' => 'foo1234bar',
             ],
+            'country code empty, vat number empty' => [
+                'countryCode' => '',
+                'vatNumber' => '',
+            ],
         ];
     }
 }
