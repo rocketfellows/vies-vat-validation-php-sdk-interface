@@ -27,9 +27,13 @@ class VatNumberValidationResult
         $this->address = $address;
     }
 
-    public static function create(): self
-    {
-
+    public static function create(
+        VatNumber $vatNumber,
+        string $requestDate,
+        bool $isValid,
+        ?string $name = null,
+        ?string $address = null
+    ): self {
     }
 
     public function getVatNumber(): string
