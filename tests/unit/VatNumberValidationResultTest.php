@@ -19,6 +19,13 @@ class VatNumberValidationResultTest extends TestCase
     {
     }
 
+    public function getCreateVatNumberValidationResultProvidedData(): array
+    {
+        return [
+            [],
+        ];
+    }
+
     /**
      * @dataProvider getVatNumberValidationResultProvidedData
      */
