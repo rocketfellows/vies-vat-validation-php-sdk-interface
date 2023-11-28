@@ -17,15 +17,16 @@ class VatNumberValidationResultTest extends TestCase
      */
     public function testCreate(array $resultData, array $expectedData): void
     {
-        $actualVatNumberValidationResult = VatNumberValidationResult::create(
-            $resultData['vatNumber'],
-            $resultData['requestDate'],
-            $resultData['isValid'],
-            $resultData['name'],
-            $resultData['address'],
+        $this->assertEqualsExpectedVatNumberValidationResult(
+            $expectedData,
+            VatNumberValidationResult::create(
+                $resultData['vatNumber'],
+                $resultData['requestDate'],
+                $resultData['isValid'],
+                $resultData['name'],
+                $resultData['address']
+            )
         );
-
-        $this->assertEqualsExpectedVatNumberValidationResult($expectedData, $actualVatNumberValidationResult);
     }
 
     /**
@@ -33,15 +34,18 @@ class VatNumberValidationResultTest extends TestCase
      */
     public function testCreateNewVatNumberValidationResult(array $resultData, array $expectedData): void
     {
-        $actualVatNumberValidationResult = new VatNumberValidationResult(
-            $resultData['vatNumber'],
-            $resultData['requestDate'],
-            $resultData['isValid'],
-            $resultData['name'],
-            $resultData['address'],
+        $this->assertEqualsExpectedVatNumberValidationResult(
+            $expectedData,
+            (
+                new VatNumberValidationResult(
+                    $resultData['vatNumber'],
+                    $resultData['requestDate'],
+                    $resultData['isValid'],
+                    $resultData['name'],
+                    $resultData['address']
+                )
+            )
         );
-
-        $this->assertEqualsExpectedVatNumberValidationResult($expectedData, $actualVatNumberValidationResult);
     }
 
     public function getVatNumberValidationResultProvidedData(): array
