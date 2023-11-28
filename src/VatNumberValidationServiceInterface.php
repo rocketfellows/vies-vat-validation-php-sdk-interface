@@ -2,6 +2,7 @@
 
 namespace rocketfellows\ViesVatValidationInterface;
 
+use rocketfellows\ViesVatValidationInterface\exceptions\service\GlobalMaxConcurrentReqServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
@@ -20,6 +21,7 @@ interface VatNumberValidationServiceInterface
      * @throws TimeoutServiceException
      * @throws VatBlockedServiceException
      * @throws IPBlockedServiceException
+     * @throws GlobalMaxConcurrentReqServiceException
      */
     public function validateVat(VatNumber $vatNumber): VatNumberValidationResult;
 }
