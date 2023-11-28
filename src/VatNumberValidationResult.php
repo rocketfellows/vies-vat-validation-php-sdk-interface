@@ -34,6 +34,13 @@ class VatNumberValidationResult
         ?string $name = null,
         ?string $address = null
     ): self {
+        return new self(
+            $vatNumber,
+            $requestDate,
+            $isValid,
+            $name,
+            $address
+        );
     }
 
     public function getVatNumber(): string
