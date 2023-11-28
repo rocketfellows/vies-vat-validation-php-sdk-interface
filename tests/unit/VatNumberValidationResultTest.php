@@ -13,17 +13,25 @@ use rocketfellows\ViesVatValidationInterface\VatNumberValidationResult;
 class VatNumberValidationResultTest extends TestCase
 {
     /**
-     * @dataProvider getCreateVatNumberValidationResultProvidedData
+     * @dataProvider getVatNumberValidationResultProvidedData
      */
     public function testCreate(array $resultData, array $expectedData): void
     {
-    }
+        $vatNumberValidationResult = VatNumberValidationResult::create(
+            $resultData['vatNumber'],
+            $resultData['requestDate'],
+            $resultData['isValid'],
+            $resultData['name'],
+            $resultData['address'],
+        );
 
-    public function getCreateVatNumberValidationResultProvidedData(): array
-    {
-        return [
-            [],
-        ];
+        $this->assertEquals($expectedData['countryCode'], $vatNumberValidationResult->getCountryCode());
+        $this->assertEquals($expectedData['vatNumber'], $vatNumberValidationResult->getVatNumber());
+        $this->assertEquals($expectedData['requestDate'], $vatNumberValidationResult->getRequestDate());
+        $this->assertEquals($expectedData['requestDateString'], $vatNumberValidationResult->getRequestDateString());
+        $this->assertEquals($expectedData['isValid'], $vatNumberValidationResult->isValid());
+        $this->assertEquals($expectedData['name'], $vatNumberValidationResult->getName());
+        $this->assertEquals($expectedData['address'], $vatNumberValidationResult->getAddress());
     }
 
     /**
