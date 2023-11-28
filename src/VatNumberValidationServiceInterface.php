@@ -4,6 +4,7 @@ namespace rocketfellows\ViesVatValidationInterface;
 
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
@@ -18,6 +19,7 @@ interface VatNumberValidationServiceInterface
      * @throws MSUnavailableServiceException
      * @throws TimeoutServiceException
      * @throws VatBlockedServiceException
+     * @throws IPBlockedServiceException
      */
     public function validateVat(VatNumber $vatNumber): VatNumberValidationResult;
 }
