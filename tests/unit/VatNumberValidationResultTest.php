@@ -13,6 +13,13 @@ use rocketfellows\ViesVatValidationInterface\VatNumberValidationResult;
 class VatNumberValidationResultTest extends TestCase
 {
     /**
+     * @dataProvider getCreateVatNumberValidationResultProvidedData
+     */
+    public function testCreate(array $resultData, array $expectedData): void
+    {
+    }
+
+    /**
      * @dataProvider getVatNumberValidationResultProvidedData
      */
     public function testCreateNewVatNumberValidationResult(array $resultData, array $expectedData): void
