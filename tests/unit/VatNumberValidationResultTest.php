@@ -25,13 +25,7 @@ class VatNumberValidationResultTest extends TestCase
             $resultData['address'],
         );
 
-        $this->assertEquals($expectedData['countryCode'], $actualVatNumberValidationResult->getCountryCode());
-        $this->assertEquals($expectedData['vatNumber'], $actualVatNumberValidationResult->getVatNumber());
-        $this->assertEquals($expectedData['requestDate'], $actualVatNumberValidationResult->getRequestDate());
-        $this->assertEquals($expectedData['requestDateString'], $actualVatNumberValidationResult->getRequestDateString());
-        $this->assertEquals($expectedData['isValid'], $actualVatNumberValidationResult->isValid());
-        $this->assertEquals($expectedData['name'], $actualVatNumberValidationResult->getName());
-        $this->assertEquals($expectedData['address'], $actualVatNumberValidationResult->getAddress());
+        $this->assertEqualsExpectedVatNumberValidationResult($expectedData, $actualVatNumberValidationResult);
     }
 
     /**
@@ -47,13 +41,7 @@ class VatNumberValidationResultTest extends TestCase
             $resultData['address'],
         );
 
-        $this->assertEquals($expectedData['countryCode'], $actualVatNumberValidationResult->getCountryCode());
-        $this->assertEquals($expectedData['vatNumber'], $actualVatNumberValidationResult->getVatNumber());
-        $this->assertEquals($expectedData['requestDate'], $actualVatNumberValidationResult->getRequestDate());
-        $this->assertEquals($expectedData['requestDateString'], $actualVatNumberValidationResult->getRequestDateString());
-        $this->assertEquals($expectedData['isValid'], $actualVatNumberValidationResult->isValid());
-        $this->assertEquals($expectedData['name'], $actualVatNumberValidationResult->getName());
-        $this->assertEquals($expectedData['address'], $actualVatNumberValidationResult->getAddress());
+        $this->assertEqualsExpectedVatNumberValidationResult($expectedData, $actualVatNumberValidationResult);
     }
 
     public function getVatNumberValidationResultProvidedData(): array
@@ -204,5 +192,18 @@ class VatNumberValidationResultTest extends TestCase
                 ],
             ],
         ];
+    }
+
+    private function assertEqualsExpectedVatNumberValidationResult(
+        array $expectedData,
+        VatNumberValidationResult $actualVatNumberValidationResult
+    ): void {
+        $this->assertEquals($expectedData['countryCode'], $actualVatNumberValidationResult->getCountryCode());
+        $this->assertEquals($expectedData['vatNumber'], $actualVatNumberValidationResult->getVatNumber());
+        $this->assertEquals($expectedData['requestDate'], $actualVatNumberValidationResult->getRequestDate());
+        $this->assertEquals($expectedData['requestDateString'], $actualVatNumberValidationResult->getRequestDateString());
+        $this->assertEquals($expectedData['isValid'], $actualVatNumberValidationResult->isValid());
+        $this->assertEquals($expectedData['name'], $actualVatNumberValidationResult->getName());
+        $this->assertEquals($expectedData['address'], $actualVatNumberValidationResult->getAddress());
     }
 }
