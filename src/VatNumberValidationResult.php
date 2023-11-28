@@ -27,6 +27,11 @@ class VatNumberValidationResult
         $this->address = $address;
     }
 
+    public static function create(): self
+    {
+
+    }
+
     public function getVatNumber(): string
     {
         return $this->vatNumber->getVatNumber();
