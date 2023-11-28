@@ -7,6 +7,7 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\GlobalMaxConcurr
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\MSMaxConcurrentReqServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
@@ -24,6 +25,7 @@ interface VatNumberValidationServiceInterface
      * @throws IPBlockedServiceException
      * @throws GlobalMaxConcurrentReqServiceException
      * @throws GlobalMaxConcurrentReqTimeServiceException
+     * @throws MSMaxConcurrentReqServiceException
      */
     public function validateVat(VatNumber $vatNumber): VatNumberValidationResult;
 }
