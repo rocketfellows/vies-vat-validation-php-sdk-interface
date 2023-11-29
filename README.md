@@ -4,7 +4,12 @@
 
 The package provides VIES VAT number validation php sdk interface.
 
-Technical information about VIES VAT number validation services: https://ec.europa.eu/taxation_customs/vies/#/technical-information
+PHP sdk interface for VIES service for checking the validity of the VAT number.
+Services that implement this interface are must be designed to send a request and process a response from the VAT validation service, depending on the API (REST/SOAP etc.).
+
+Implementations of this interface are provided in the rocketfellows repositories (either already or in the future).
+
+For more information about VIES VAT number validation services see https://ec.europa.eu/taxation_customs/vies/#/technical-information.
 
 ## Installation.
 
