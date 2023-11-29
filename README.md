@@ -19,6 +19,14 @@ composer require rocketfellows/vies-vat-validation-php-sdk-interface
 
 ## Interface description.
 
+`VatNumberValidationServiceInterface` - sdk interface.
+
+`VatNumber` - validated VAT.
+
+`VatNumberValidationResult` - validation result.
+
+// TODO: describe exceptions
+
 ## Contributing.
 
 Welcome to pull requests. If there is a major changes, first please open an issue for discussion.
