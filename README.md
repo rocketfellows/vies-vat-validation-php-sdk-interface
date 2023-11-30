@@ -34,6 +34,7 @@ Interface exceptions:
 - `MSUnavailableServiceException` - exception for api error code `MS_UNAVAILABLE`, which means: the application at the Member State is not replying or not available. Please refer to the Technical Information page to check the status of the requested Member State, try again later;
 - `TimeoutServiceException` - exception for api error code `TIMEOUT`, which means: the application did not receive a reply within the allocated time period, try again later;
 - `InvalidRequesterInfoServiceException` - exception for api error code `INVALID_REQUESTER_INFO`;
+- `VatBlockedServiceException` - exception for api error code `VAT_BLOCKED`;
 
 ## Contributing.
 
