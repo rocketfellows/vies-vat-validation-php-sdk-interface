@@ -36,6 +36,7 @@ Interface exceptions:
 - `InvalidRequesterInfoServiceException` - exception for api error code `INVALID_REQUESTER_INFO`;
 - `VatBlockedServiceException` - exception for api error code `VAT_BLOCKED`;
 - `IPBlockedServiceException` - exception for api error code `IP_BLOCKED`;
+- `GlobalMaxConcurrentReqServiceException` - exception for api error code `GLOBAL_MAX_CONCURRENT_REQ`, which means: your Request for VAT validation has not been processed; the maximum number of concurrent requests has been reached. Please re-submit your request later or contact TAXUD-VIESWEB@ec.europa.eu for further information": Your request cannot be processed due to high traffic on the web application. Please try again later;
 
 ## Contributing.
 
