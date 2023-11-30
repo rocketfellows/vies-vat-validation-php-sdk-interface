@@ -19,13 +19,18 @@ composer require rocketfellows/vies-vat-validation-php-sdk-interface
 
 ## Interface description.
 
-`VatNumberValidationServiceInterface` - sdk interface.
+Interface contract:
 
-`VatNumber` - validated VAT.
+- `VatNumberValidationServiceInterface` - sdk interface;
 
-`VatNumberValidationResult` - validation result.
+- `VatNumber` - validated VAT;
 
-// TODO: describe exceptions
+- `VatNumberValidationResult` - validation result;
+
+Interface exceptions:
+
+- `InvalidInputServiceException` - exception for api error code `INVALID_INPUT`, which means: the provided `CountryCode` is invalid or the VAT number is empty;
+- `ServiceUnavailableException` - exception for api error code `SERVICE_UNAVAILABLE`, which means: an error was encountered either at the network level or the Web application level, try again later;
 
 ## Contributing.
 
