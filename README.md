@@ -29,16 +29,16 @@ Interface contract:
 
 Interface exceptions:
 
-`InvalidInputServiceException` - exception for api error code `INVALID_INPUT`.
+`InvalidInputServiceException` - exception for api error code `INVALID_INPUT`.<br>
 Description: ``the provided CountryCode is invalid or the VAT number is empty``.
 
-`ServiceUnavailableException` - exception for api error code `SERVICE_UNAVAILABLE`.
+`ServiceUnavailableException` - exception for api error code `SERVICE_UNAVAILABLE`.<br>
 Description: `an error was encountered either at the network level or the Web application level, try again later`.
 
-`MSUnavailableServiceException` - exception for api error code `MS_UNAVAILABLE`.
+`MSUnavailableServiceException` - exception for api error code `MS_UNAVAILABLE`.<br>
 Description: `the application at the Member State is not replying or not available. Please refer to the Technical Information page to check the status of the requested Member State, try again later`.
 
-`TimeoutServiceException` - exception for api error code `TIMEOUT`.
+`TimeoutServiceException` - exception for api error code `TIMEOUT`.<br>
 Description: `the application did not receive a reply within the allocated time period, try again later`.
 
 `InvalidRequesterInfoServiceException` - exception for api error code `INVALID_REQUESTER_INFO`.
@@ -47,12 +47,12 @@ Description: `the application did not receive a reply within the allocated time 
 
 `IPBlockedServiceException` - exception for api error code `IP_BLOCKED`.
 
-`GlobalMaxConcurrentReqServiceException` - exception for api error code `GLOBAL_MAX_CONCURRENT_REQ`.
+`GlobalMaxConcurrentReqServiceException` - exception for api error code `GLOBAL_MAX_CONCURRENT_REQ`.<br>
 Description: `your Request for VAT validation has not been processed; the maximum number of concurrent requests has been reached. Please re-submit your request later or contact TAXUD-VIESWEB@ec.europa.eu for further information": Your request cannot be processed due to high traffic on the web application. Please try again later`.
 
 `GlobalMaxConcurrentReqTimeServiceException` - exception for api error code `GLOBAL_MAX_CONCURRENT_REQ_TIME`.
 
-`MSMaxConcurrentReqServiceException` - exception for api error code `MS_MAX_CONCURRENT_REQ`.
+`MSMaxConcurrentReqServiceException` - exception for api error code `MS_MAX_CONCURRENT_REQ`.<br>
 Description: `your Request for VAT validation has not been processed; the maximum number of concurrent requests for this Member State has been reached. Please re-submit your request later or contact TAXUD-VIESWEB@ec.europa.eu for further information": Your request cannot be processed due to high traffic towards the Member State you are trying to reach. Please try again later`.
 
 `MSMaxConcurrentReqTimeServiceException` - exception for api error code `MS_MAX_CONCURRENT_REQ_TIME`.
