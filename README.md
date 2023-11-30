@@ -59,6 +59,8 @@ Description: `your Request for VAT validation has not been processed; the maximu
 
 `UnknownServiceErrorException` - exception thrown if it was not possible to understand what error code service returned.
 
+`ServiceRequestException` - exception thrown if it was not possible to send a request to service (other errors).
+
 ## Contributing.
 
 Welcome to pull requests. If there is a major changes, first please open an issue for discussion.
