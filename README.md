@@ -57,6 +57,8 @@ Description: `your Request for VAT validation has not been processed; the maximu
 
 `MSMaxConcurrentReqTimeServiceException` - exception for api error code `MS_MAX_CONCURRENT_REQ_TIME`.
 
+`UnknownServiceErrorException` - exception thrown if it was not possible to understand what error code service returned.
+
 ## Contributing.
 
 Welcome to pull requests. If there is a major changes, first please open an issue for discussion.
