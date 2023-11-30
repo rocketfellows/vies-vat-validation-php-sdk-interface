@@ -35,6 +35,7 @@ Interface exceptions:
 - `TimeoutServiceException` - exception for api error code `TIMEOUT`, which means: the application did not receive a reply within the allocated time period, try again later;
 - `InvalidRequesterInfoServiceException` - exception for api error code `INVALID_REQUESTER_INFO`;
 - `VatBlockedServiceException` - exception for api error code `VAT_BLOCKED`;
+- `IPBlockedServiceException` - exception for api error code `IP_BLOCKED`;
 
 ## Contributing.
 
