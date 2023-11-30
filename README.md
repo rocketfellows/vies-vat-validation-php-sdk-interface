@@ -50,6 +50,11 @@ Description: `the application did not receive a reply within the allocated time 
 `GlobalMaxConcurrentReqServiceException` - exception for api error code `GLOBAL_MAX_CONCURRENT_REQ`.
 Description: `your Request for VAT validation has not been processed; the maximum number of concurrent requests has been reached. Please re-submit your request later or contact TAXUD-VIESWEB@ec.europa.eu for further information": Your request cannot be processed due to high traffic on the web application. Please try again later`.
 
+`GlobalMaxConcurrentReqTimeServiceException` - exception for api error code `GLOBAL_MAX_CONCURRENT_REQ_TIME`.
+
+`MSMaxConcurrentReqServiceException` - exception for api error code `MS_MAX_CONCURRENT_REQ`.
+Description: `your Request for VAT validation has not been processed; the maximum number of concurrent requests for this Member State has been reached. Please re-submit your request later or contact TAXUD-VIESWEB@ec.europa.eu for further information": Your request cannot be processed due to high traffic towards the Member State you are trying to reach. Please try again later`.
+
 ## Contributing.
 
 Welcome to pull requests. If there is a major changes, first please open an issue for discussion.
