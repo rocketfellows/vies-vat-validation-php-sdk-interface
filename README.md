@@ -61,6 +61,8 @@ Description: `your Request for VAT validation has not been processed; the maximu
 
 `ServiceRequestException` - exception thrown if it was not possible to send a request to service (other errors).
 
+// TODO: describe interface types
+
 ## Contributing.
 
 Welcome to pull requests. If there is a major changes, first please open an issue for discussion.
