@@ -65,6 +65,13 @@ Description: `your Request for VAT validation has not been processed; the maximu
 - `countryCode` - _string_ - two-character country code, according to ISO 3166-1 standard;
 - `vatNumber` - _string_ - validated VAT number.
 
+`VatNumberValidationResult` type description (validation result):
+- `vatNumber` - _VatNumber_ - validated VAT number;
+- `requestDate` - _string_ - request date;
+- `isValid` - _bool_ - validity flag;
+- `name` - _null_ | _string_ - name;
+- `address` - _null_ | _string_ - address.
+
 ## Contributing.
 
 Welcome to pull requests. If there is a major changes, first please open an issue for discussion.
