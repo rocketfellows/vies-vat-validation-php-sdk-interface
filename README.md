@@ -27,6 +27,8 @@ Interface contract:
 
 - `VatNumberValidationResult` - validation result;
 
+<hr>
+
 Interface exceptions:
 
 `InvalidInputServiceException` - exception for api error code `INVALID_INPUT`.<br>
@@ -60,6 +62,8 @@ Description: `your Request for VAT validation has not been processed; the maximu
 `UnknownServiceErrorException` - exception thrown if it was not possible to understand what error code service returned.
 
 `ServiceRequestException` - exception thrown if it was not possible to send a request to service (other errors).
+
+<hr>
 
 `VatNumber` type description (validated VAT):
 - `countryCode` - _string_ - two-character country code, according to ISO 3166-1 standard;
