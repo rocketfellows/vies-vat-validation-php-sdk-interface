@@ -21,7 +21,7 @@ composer require rocketfellows/vies-vat-validation-php-sdk-interface
 
 Interface contract:
 
-- `VatNumberValidationServiceInterface` - sdk interface;
+- `VatNumberValidationServiceInterface` - sdk interface, return value type `VatNumberValidationResult`, input argument `VatNumber`;
 
 - `VatNumber` - validated VAT;
 
