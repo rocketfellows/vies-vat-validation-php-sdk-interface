@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1701427614">
-  <project timestamp="1701427614">
+<coverage generated="1701427966">
+  <project timestamp="1701427966">
     <file name="/app/src/VatNumber.php">
       <class name="rocketfellows\ViesVatValidationInterface\VatNumber" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
