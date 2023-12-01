@@ -61,7 +61,9 @@ Description: `your Request for VAT validation has not been processed; the maximu
 
 `ServiceRequestException` - exception thrown if it was not possible to send a request to service (other errors).
 
-// TODO: describe interface types
+`VatNumber` type description (validated VAT):
+- `countryCode` - _string_ - two-character country code, according to ISO 3166-1 standard;
+- `vatNumber` - _string_ - validated VAT number.
 
 ## Contributing.
 
