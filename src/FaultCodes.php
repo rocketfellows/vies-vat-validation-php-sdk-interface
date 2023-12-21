@@ -10,4 +10,5 @@ interface FaultCodes
     public const TIMEOUT = 'TIMEOUT';
     public const INVALID_REQUESTER_INFO = 'INVALID_REQUESTER_INFO';
     public const VAT_BLOCKED = 'VAT_BLOCKED';
+    public const IP_BLOCKED = 'IP_BLOCKED';
 }
