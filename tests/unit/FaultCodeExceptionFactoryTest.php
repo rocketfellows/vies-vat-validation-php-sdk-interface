@@ -5,6 +5,7 @@ namespace rocketfellows\ViesVatValidationInterface\tests\unit;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\GlobalMaxConcurrentReqServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\GlobalMaxConcurrentReqTimeServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
@@ -69,6 +70,10 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code GLOBAL_MAX_CONCURRENT_REQ' => [
                 'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ',
                 'expectedCreatedException' => new GlobalMaxConcurrentReqServiceException(),
+            ],
+            'fault code GLOBAL_MAX_CONCURRENT_REQ_TIME' => [
+                'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ_TIME',
+                'expectedCreatedException' => new GlobalMaxConcurrentReqTimeServiceException(),
             ],
         ];
     }
