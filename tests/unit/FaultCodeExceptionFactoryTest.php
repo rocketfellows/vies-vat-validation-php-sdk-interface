@@ -9,4 +9,12 @@ use PHPUnit\Framework\TestCase;
  */
 class FaultCodeExceptionFactoryTest extends TestCase
 {
+    private $faultCodeExceptionFactoryTest;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->faultCodeExceptionFactoryTest = new FaultCodeExceptionFactoryTest();
+    }
 }
