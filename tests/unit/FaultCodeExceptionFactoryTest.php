@@ -26,4 +26,14 @@ class FaultCodeExceptionFactoryTest extends TestCase
     {
         $this->assertEquals($expectedCreatedException, $this->faultCodeExceptionFactoryTest->create($faultCode));
     }
+
+    public function getCreateExceptionProvidedData(): array
+    {
+        return [
+            [
+                'faultCode',
+                'expectedCreatedException',
+            ],
+        ];
+    }
 }
