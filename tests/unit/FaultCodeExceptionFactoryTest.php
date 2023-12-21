@@ -5,6 +5,7 @@ namespace rocketfellows\ViesVatValidationInterface\tests\unit;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
@@ -49,6 +50,10 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code TIMEOUT' => [
                 'faultCode' => 'TIMEOUT',
                 'expectedCreatedException' => new TimeoutServiceException(),
+            ],
+            'fault code INVALID_REQUESTER_INFO' => [
+                'faultCode' => 'INVALID_REQUESTER_INFO',
+                'expectedCreatedException' => new InvalidRequesterInfoServiceException(),
             ],
         ];
     }
