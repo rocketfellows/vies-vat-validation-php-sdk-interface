@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1703162882">
-  <project timestamp="1703162882">
+<coverage generated="1703163061">
+  <project timestamp="1703163061">
     <file name="/app/src/FaultCodeExceptionFactory.php">
       <class name="rocketfellows\ViesVatValidationInterface\FaultCodeExceptionFactory" namespace="global">
         <metrics complexity="13" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="24" coveredelements="24"/>
