@@ -8,6 +8,7 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableSer
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\UnknownServiceErrorException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\VatBlockedServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\VatNumberValidationException;
 
 class FaultCodeExceptionFactory
@@ -26,6 +27,8 @@ class FaultCodeExceptionFactory
                 return new TimeoutServiceException();
             case FaultCodes::INVALID_REQUESTER_INFO:
                 return new InvalidRequesterInfoServiceException();
+            case FaultCodes::VAT_BLOCKED:
+                return new VatBlockedServiceException();
             default:
                 return new UnknownServiceErrorException();
         }
