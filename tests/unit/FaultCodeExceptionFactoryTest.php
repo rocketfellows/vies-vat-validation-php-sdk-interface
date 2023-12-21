@@ -5,6 +5,7 @@ namespace rocketfellows\ViesVatValidationInterface\tests\unit;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 
 /**
@@ -39,6 +40,10 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code SERVICE_UNAVAILABLE' => [
                 'faultCode' => 'SERVICE_UNAVAILABLE',
                 'expectedCreatedException' => new ServiceUnavailableException(),
+            ],
+            'fault code MS_UNAVAILABLE' => [
+                'faultCode' => 'MS_UNAVAILABLE',
+                'expectedCreatedException' => new MSUnavailableServiceException(),
             ],
         ];
     }
