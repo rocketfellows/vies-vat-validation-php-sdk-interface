@@ -9,6 +9,7 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\GlobalMaxConcurr
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\MSMaxConcurrentReqServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
@@ -74,6 +75,10 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code GLOBAL_MAX_CONCURRENT_REQ_TIME' => [
                 'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ_TIME',
                 'expectedCreatedException' => new GlobalMaxConcurrentReqTimeServiceException(),
+            ],
+            'fault code MS_MAX_CONCURRENT_REQ' => [
+                'faultCode' => 'MS_MAX_CONCURRENT_REQ',
+                'expectedCreatedException' => new MSMaxConcurrentReqServiceException(),
             ],
         ];
     }
