@@ -6,6 +6,7 @@ use Exception;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
@@ -59,6 +60,10 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code VAT_BLOCKED' => [
                 'faultCode' => 'VAT_BLOCKED',
                 'expectedCreatedException' => new VatBlockedServiceException(),
+            ],
+            'fault code IP_BLOCKED' => [
+                'faultCode' => 'IP_BLOCKED',
+                'expectedCreatedException' => new IPBlockedServiceException(),
             ],
         ];
     }
