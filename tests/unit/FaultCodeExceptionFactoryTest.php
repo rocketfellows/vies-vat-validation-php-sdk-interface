@@ -16,6 +16,7 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailab
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\UnknownServiceErrorException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\VatBlockedServiceException;
+use rocketfellows\ViesVatValidationInterface\FaultCodeExceptionFactory;
 
 /**
  * @group vies-vat-validation-interface
@@ -28,7 +29,7 @@ class FaultCodeExceptionFactoryTest extends TestCase
     {
         parent::setUp();
 
-        $this->faultCodeExceptionFactoryTest = new FaultCodeExceptionFactoryTest();
+        $this->faultCodeExceptionFactoryTest = new FaultCodeExceptionFactory();
     }
 
     /**
