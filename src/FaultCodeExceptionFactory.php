@@ -5,6 +5,7 @@ namespace rocketfellows\ViesVatValidationInterface;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\UnknownServiceErrorException;
 use rocketfellows\ViesVatValidationInterface\exceptions\VatNumberValidationException;
 
@@ -20,6 +21,8 @@ class FaultCodeExceptionFactory
                 return new ServiceUnavailableException();
             case FaultCodes::MS_UNAVAILABLE:
                 return new MSUnavailableServiceException();
+            case FaultCodes::TIMEOUT:
+                return new TimeoutServiceException();
             default:
                 return new UnknownServiceErrorException();
         }
