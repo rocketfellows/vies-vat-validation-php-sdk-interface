@@ -14,6 +14,7 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\MSMaxConcurrentR
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\UnknownServiceErrorException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\VatBlockedServiceException;
 
 /**
@@ -84,6 +85,10 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code MS_MAX_CONCURRENT_REQ_TIME' => [
                 'faultCode' => 'MS_MAX_CONCURRENT_REQ_TIME',
                 'expectedCreatedException' => new MSMaxConcurrentReqTimeServiceException(),
+            ],
+            'fault code unknown' => [
+                'faultCode' => 'foo_bar',
+                'expectedCreatedException' => new UnknownServiceErrorException(),
             ],
         ];
     }
