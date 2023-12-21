@@ -9,4 +9,5 @@ interface FaultCodes
     public const MS_UNAVAILABLE = 'MS_UNAVAILABLE';
     public const TIMEOUT = 'TIMEOUT';
     public const INVALID_REQUESTER_INFO = 'INVALID_REQUESTER_INFO';
+    public const VAT_BLOCKED = 'VAT_BLOCKED';
 }
