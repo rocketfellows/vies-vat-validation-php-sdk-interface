@@ -11,4 +11,5 @@ interface FaultCodes
     public const INVALID_REQUESTER_INFO = 'INVALID_REQUESTER_INFO';
     public const VAT_BLOCKED = 'VAT_BLOCKED';
     public const IP_BLOCKED = 'IP_BLOCKED';
+    public const GLOBAL_MAX_CONCURRENT_REQ = 'GLOBAL_MAX_CONCURRENT_REQ';
 }
