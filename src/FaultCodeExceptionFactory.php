@@ -2,6 +2,7 @@
 
 namespace rocketfellows\ViesVatValidationInterface;
 
+use rocketfellows\ViesVatValidationInterface\exceptions\service\GlobalMaxConcurrentReqServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
@@ -32,6 +33,8 @@ class FaultCodeExceptionFactory
                 return new VatBlockedServiceException();
             case FaultCodes::IP_BLOCKED:
                 return new IPBlockedServiceException();
+            case FaultCodes::GLOBAL_MAX_CONCURRENT_REQ:
+                return new GlobalMaxConcurrentReqServiceException();
             default:
                 return new UnknownServiceErrorException();
         }
