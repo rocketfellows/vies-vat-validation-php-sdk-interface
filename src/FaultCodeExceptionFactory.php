@@ -7,6 +7,7 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\GlobalMaxConcurr
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\MSMaxConcurrentReqServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
@@ -38,6 +39,8 @@ class FaultCodeExceptionFactory
                 return new GlobalMaxConcurrentReqServiceException();
             case FaultCodes::GLOBAL_MAX_CONCURRENT_REQ_TIME:
                 return new GlobalMaxConcurrentReqTimeServiceException();
+            case FaultCodes::MS_MAX_CONCURRENT_REQ:
+                return new MSMaxConcurrentReqServiceException();
             default:
                 return new UnknownServiceErrorException();
         }
