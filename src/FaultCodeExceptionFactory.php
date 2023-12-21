@@ -4,6 +4,7 @@ namespace rocketfellows\ViesVatValidationInterface;
 
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\IPBlockedServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
@@ -29,6 +30,8 @@ class FaultCodeExceptionFactory
                 return new InvalidRequesterInfoServiceException();
             case FaultCodes::VAT_BLOCKED:
                 return new VatBlockedServiceException();
+            case FaultCodes::IP_BLOCKED:
+                return new IPBlockedServiceException();
             default:
                 return new UnknownServiceErrorException();
         }
