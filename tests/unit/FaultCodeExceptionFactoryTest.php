@@ -7,6 +7,7 @@ use PHPUnit\Framework\TestCase;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidInputServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
 
 /**
  * @group vies-vat-validation-interface
@@ -44,6 +45,10 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code MS_UNAVAILABLE' => [
                 'faultCode' => 'MS_UNAVAILABLE',
                 'expectedCreatedException' => new MSUnavailableServiceException(),
+            ],
+            'fault code TIMEOUT' => [
+                'faultCode' => 'TIMEOUT',
+                'expectedCreatedException' => new TimeoutServiceException(),
             ],
         ];
     }
