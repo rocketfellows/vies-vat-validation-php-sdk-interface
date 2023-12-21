@@ -9,6 +9,7 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequester
 use rocketfellows\ViesVatValidationInterface\exceptions\service\MSUnavailableServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailableException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\VatBlockedServiceException;
 
 /**
  * @group vies-vat-validation-interface
@@ -54,6 +55,10 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code INVALID_REQUESTER_INFO' => [
                 'faultCode' => 'INVALID_REQUESTER_INFO',
                 'expectedCreatedException' => new InvalidRequesterInfoServiceException(),
+            ],
+            'fault code VAT_BLOCKED' => [
+                'faultCode' => 'VAT_BLOCKED',
+                'expectedCreatedException' => new VatBlockedServiceException(),
             ],
         ];
     }
