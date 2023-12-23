@@ -50,4 +50,37 @@ class UnknownServiceErrorExceptionTest extends TestCase
             ],
         ];
     }
+
+    /**
+     * @dataProvider getDefaultCreateExceptionProvidedData
+     */
+    public function testCreateException(array $exceptionData, array $expectedExceptionData): void
+    {
+        $exception = new UnknownServiceErrorException($exceptionData['faultCode']);
+
+        $this->assertEquals($expectedExceptionData['expectedFaultCode'], $exception->getFaultCode());
+        $this->assertEquals($expectedExceptionData['expectedMessage'], $exception->getMessage());
+        $this->assertEquals($expectedExceptionData['expectedCode'], $exception->getCode());
+        $this->assertEquals($expectedExceptionData['expectedPrevException'], $exception->getPrevious());
+    }
+
+    public function getCreateExceptionProvidedData(): array
+    {
+        return [
+            'fault code empty, message empty, default code, prev exception not set' => [
+                'exceptionData' => [
+                    'faultCode' => '',
+                    'message' => '',
+                    'code' => 0,
+                    'prevException' => null,
+                ],
+                'expectedExceptionData' => [
+                    'expectedFaultCode' => '',
+                    'expectedMessage' => '',
+                    'expectedCode' => 0,
+                    'expectedPrevException' => null,
+                ],
+            ],
+        ];
+    }
 }
