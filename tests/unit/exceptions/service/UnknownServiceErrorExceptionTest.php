@@ -37,6 +37,17 @@ class UnknownServiceErrorExceptionTest extends TestCase
                     'expectedPrevException' => null,
                 ],
             ],
+            'fault code not empty' => [
+                'exceptionData' => [
+                    'faultCode' => 'foo',
+                ],
+                'expectedExceptionData' => [
+                    'expectedFaultCode' => 'foo',
+                    'expectedMessage' => '',
+                    'expectedCode' => 0,
+                    'expectedPrevException' => null,
+                ],
+            ],
         ];
     }
 }
