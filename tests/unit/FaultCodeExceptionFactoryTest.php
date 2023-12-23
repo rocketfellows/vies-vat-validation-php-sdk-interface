@@ -265,6 +265,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new MSMaxConcurrentReqServiceException(),
             ],
+            'fault code MS_MAX_CONCURRENT_REQ_TIME, message empty' => [
+                'faultCode' => 'MS_MAX_CONCURRENT_REQ_TIME',
+                'message' => '',
+                'expectedCreatedException' => new MSMaxConcurrentReqTimeServiceException(),
+            ],
+            'fault code MS_MAX_CONCURRENT_REQ_TIME, message not empty' => [
+                'faultCode' => 'MS_MAX_CONCURRENT_REQ_TIME',
+                'message' => 'foo',
+                'expectedCreatedException' => new MSMaxConcurrentReqTimeServiceException('foo'),
+            ],
+            'fault code MS_MAX_CONCURRENT_REQ_TIME, message is null' => [
+                'faultCode' => 'MS_MAX_CONCURRENT_REQ_TIME',
+                'message' => null,
+                'expectedCreatedException' => new MSMaxConcurrentReqTimeServiceException(),
+            ],
         ];
     }
 }
