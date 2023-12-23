@@ -97,4 +97,23 @@ class FaultCodeExceptionFactoryTest extends TestCase
             ],
         ];
     }
+
+    /**
+     * @dataProvider getCreateExceptionWithMessageProvidedData
+     */
+    public function testCreateExceptionWithMessage(string $faultCode, Exception $expectedCreatedException): void
+    {
+        $this->assertEquals($expectedCreatedException, $this->faultCodeExceptionFactoryTest->create($faultCode));
+    }
+
+    public function getCreateExceptionWithMessageProvidedData(): array
+    {
+        return [
+            [
+                'faultCode' => '',
+                'message' => '',
+                'expectedCreatedException',
+            ],
+        ];
+    }
 }
