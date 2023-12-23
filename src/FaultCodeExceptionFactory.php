@@ -18,8 +18,12 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\VatNumberValidat
 
 class FaultCodeExceptionFactory
 {
-    public function create(string $faultCode, ?string $message = ''): VatNumberValidationServiceException
+    private const DEFAULT_EXCEPTION_MESSAGE = '';
+
+    public function create(string $faultCode, ?string $message = null): VatNumberValidationServiceException
     {
+        $message = empty($message) ? self::DEFAULT_EXCEPTION_MESSAGE : $message;
+
         switch ($faultCode) {
             case FaultCodes::INVALID_INPUT:
                 return new InvalidInputServiceException($message);

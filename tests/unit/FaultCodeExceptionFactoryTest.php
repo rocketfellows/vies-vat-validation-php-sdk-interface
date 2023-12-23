@@ -280,6 +280,36 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new MSMaxConcurrentReqTimeServiceException(),
             ],
+            'fault code unknown, message empty' => [
+                'faultCode' => 'foo_bar',
+                'message' => '',
+                'expectedCreatedException' => new UnknownServiceErrorException('foo_bar'),
+            ],
+            'fault code unknown, message is null' => [
+                'faultCode' => 'foo_bar',
+                'message' => null,
+                'expectedCreatedException' => new UnknownServiceErrorException('foo_bar'),
+            ],
+            'fault code unknown, message not empty' => [
+                'faultCode' => 'foo_bar',
+                'message' => 'foo',
+                'expectedCreatedException' => new UnknownServiceErrorException('foo_bar', 'foo'),
+            ],
+            'fault code empty, message empty' => [
+                'faultCode' => '',
+                'message' => '',
+                'expectedCreatedException' => new UnknownServiceErrorException(''),
+            ],
+            'fault code empty, message is null' => [
+                'faultCode' => '',
+                'message' => null,
+                'expectedCreatedException' => new UnknownServiceErrorException(''),
+            ],
+            'fault code empty, message not empty' => [
+                'faultCode' => '',
+                'message' => 'foo',
+                'expectedCreatedException' => new UnknownServiceErrorException('', 'foo'),
+            ],
         ];
     }
 }
