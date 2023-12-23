@@ -120,6 +120,11 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => '',
                 'expectedCreatedException' => new InvalidInputServiceException(),
             ],
+            'fault code INVALID_INPUT, message not empty' => [
+                'faultCode' => 'INVALID_INPUT',
+                'message' => 'foo',
+                'expectedCreatedException' => new InvalidInputServiceException('foo'),
+            ],
         ];
     }
 }
