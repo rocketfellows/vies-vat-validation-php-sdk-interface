@@ -23,6 +23,7 @@ class FaultCodeExceptionFactory
     public function create(string $faultCode, ?string $message = null): VatNumberValidationServiceException
     {
         $message = empty($message) ? self::DEFAULT_EXCEPTION_MESSAGE : $message;
+        $faultCode = strtoupper($faultCode);
 
         switch ($faultCode) {
             case FaultCodes::INVALID_INPUT:
