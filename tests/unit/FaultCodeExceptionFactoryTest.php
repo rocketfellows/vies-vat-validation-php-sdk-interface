@@ -235,6 +235,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new GlobalMaxConcurrentReqServiceException(),
             ],
+            'fault code GLOBAL_MAX_CONCURRENT_REQ_TIME, message empty' => [
+                'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ_TIME',
+                'message' => '',
+                'expectedCreatedException' => new GlobalMaxConcurrentReqTimeServiceException(),
+            ],
+            'fault code GLOBAL_MAX_CONCURRENT_REQ_TIME, message not empty' => [
+                'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ_TIME',
+                'message' => 'foo',
+                'expectedCreatedException' => new GlobalMaxConcurrentReqTimeServiceException('foo'),
+            ],
+            'fault code GLOBAL_MAX_CONCURRENT_REQ_TIME, message is null' => [
+                'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ_TIME',
+                'message' => null,
+                'expectedCreatedException' => new GlobalMaxConcurrentReqTimeServiceException(),
+            ],
         ];
     }
 }
