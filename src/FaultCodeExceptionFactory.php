@@ -14,11 +14,11 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\ServiceUnavailab
 use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\UnknownServiceErrorException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\VatBlockedServiceException;
-use rocketfellows\ViesVatValidationInterface\exceptions\VatNumberValidationException;
+use rocketfellows\ViesVatValidationInterface\exceptions\service\VatNumberValidationServiceException;
 
 class FaultCodeExceptionFactory
 {
-    public function create(string $faultCode): VatNumberValidationException
+    public function create(string $faultCode): VatNumberValidationServiceException
     {
         switch ($faultCode) {
             case FaultCodes::INVALID_INPUT:
@@ -44,7 +44,7 @@ class FaultCodeExceptionFactory
             case FaultCodes::MS_MAX_CONCURRENT_REQ_TIME:
                 return new MSMaxConcurrentReqTimeServiceException();
             default:
-                return new UnknownServiceErrorException();
+                return new UnknownServiceErrorException($faultCode);
         }
     }
 }
