@@ -130,6 +130,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new InvalidInputServiceException(),
             ],
+            'fault code SERVICE_UNAVAILABLE, message empty' => [
+                'faultCode' => 'SERVICE_UNAVAILABLE',
+                'message' => '',
+                'expectedCreatedException' => new ServiceUnavailableException(),
+            ],
+            'fault code SERVICE_UNAVAILABLE, message not empty' => [
+                'faultCode' => 'SERVICE_UNAVAILABLE',
+                'message' => 'foo',
+                'expectedCreatedException' => new ServiceUnavailableException('foo'),
+            ],
+            'fault code SERVICE_UNAVAILABLE, message is null' => [
+                'faultCode' => 'SERVICE_UNAVAILABLE',
+                'message' => null,
+                'expectedCreatedException' => new ServiceUnavailableException(),
+            ],
         ];
     }
 }
