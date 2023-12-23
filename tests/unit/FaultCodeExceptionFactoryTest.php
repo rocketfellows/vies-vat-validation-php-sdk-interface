@@ -160,6 +160,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new MSUnavailableServiceException(),
             ],
+            'fault code TIMEOUT, message empty' => [
+                'faultCode' => 'TIMEOUT',
+                'message' => '',
+                'expectedCreatedException' => new TimeoutServiceException(),
+            ],
+            'fault code TIMEOUT, message not empty' => [
+                'faultCode' => 'TIMEOUT',
+                'message' => 'foo',
+                'expectedCreatedException' => new TimeoutServiceException('foo'),
+            ],
+            'fault code TIMEOUT, message is null' => [
+                'faultCode' => 'TIMEOUT',
+                'message' => null,
+                'expectedCreatedException' => new TimeoutServiceException(),
+            ],
         ];
     }
 }
