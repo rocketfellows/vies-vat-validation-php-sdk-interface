@@ -88,6 +88,75 @@ So far, VIES provides two services for validating the VAT number:
 - SOAP web services API;
 - REST web services API.
 
+## Fault code exception factory
+
+`rocketfellows\ViesVatValidationInterface\FaultCodeExceptionFactory` - a factory designed to create exceptions based on an error code that the VAT number validation service can return.
+Error code detection is case insensitive.
+
+Input arguments:
+- `$faultCode` - error code that the VAT number validation service can return;
+- `$message` - optional - error message that the VAT number validation service can return.
+
+**Creating exceptions, based on error code mapping:**
+
+`InvalidInputServiceException` - exception for api error code `INVALID_INPUT`.<br>
+Description: ``the provided CountryCode is invalid or the VAT number is empty``.
+
+`ServiceUnavailableException` - exception for api error code `SERVICE_UNAVAILABLE`.<br>
+Description: `an error was encountered either at the network level or the Web application level, try again later`.
+
+`MSUnavailableServiceException` - exception for api error code `MS_UNAVAILABLE`.<br>
+Description: `the application at the Member State is not replying or not available. Please refer to the Technical Information page to check the status of the requested Member State, try again later`.
+
+`TimeoutServiceException` - exception for api error code `TIMEOUT`.<br>
+Description: `the application did not receive a reply within the allocated time period, try again later`.
+
+`InvalidRequesterInfoServiceException` - exception for api error code `INVALID_REQUESTER_INFO`.
+
+`VatBlockedServiceException` - exception for api error code `VAT_BLOCKED`.
+
+`IPBlockedServiceException` - exception for api error code `IP_BLOCKED`.
+
+`GlobalMaxConcurrentReqServiceException` - exception for api error code `GLOBAL_MAX_CONCURRENT_REQ`.<br>
+Description: `your Request for VAT validation has not been processed; the maximum number of concurrent requests has been reached. Please re-submit your request later or contact TAXUD-VIESWEB@ec.europa.eu for further information": Your request cannot be processed due to high traffic on the web application. Please try again later`.
+
+`GlobalMaxConcurrentReqTimeServiceException` - exception for api error code `GLOBAL_MAX_CONCURRENT_REQ_TIME`.
+
+`MSMaxConcurrentReqServiceException` - exception for api error code `MS_MAX_CONCURRENT_REQ`.<br>
+Description: `your Request for VAT validation has not been processed; the maximum number of concurrent requests for this Member State has been reached. Please re-submit your request later or contact TAXUD-VIESWEB@ec.europa.eu for further information": Your request cannot be processed due to high traffic towards the Member State you are trying to reach. Please try again later`.
+
+`MSMaxConcurrentReqTimeServiceException` - exception for api error code `MS_MAX_CONCURRENT_REQ_TIME`.
+
+`UnknownServiceErrorException` - exception thrown if it was not possible to understand what error code service returned.
+
+### Usage examples
+
+Error code in upper case:
+
+```php
+$factory = new FaultCodeExceptionFactory();
+
+$exception = $factory->create('INVALID_REQUESTER_INFO');
+
+var_dump(get_class($exception));
+```
+```php
+rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException
+```
+
+Error code in lower upper case:
+
+```php
+$factory = new FaultCodeExceptionFactory();
+
+$exception = $factory->create('invalid_requester_info');
+
+var_dump(get_class($exception));
+```
+```php
+rocketfellows\ViesVatValidationInterface\exceptions\service\InvalidRequesterInfoServiceException
+```
+
 ## Contributing.
 
 Welcome to pull requests. If there is a major changes, first please open an issue for discussion.
