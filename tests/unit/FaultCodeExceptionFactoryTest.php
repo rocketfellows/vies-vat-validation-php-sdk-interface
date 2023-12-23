@@ -89,11 +89,11 @@ class FaultCodeExceptionFactoryTest extends TestCase
             ],
             'fault code unknown' => [
                 'faultCode' => 'foo_bar',
-                'expectedCreatedException' => new UnknownServiceErrorException(),
+                'expectedCreatedException' => new UnknownServiceErrorException('foo_bar'),
             ],
             'fault code empty' => [
                 'faultCode' => '',
-                'expectedCreatedException' => new UnknownServiceErrorException(),
+                'expectedCreatedException' => new UnknownServiceErrorException(''),
             ],
         ];
     }
