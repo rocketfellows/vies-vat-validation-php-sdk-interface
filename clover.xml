@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1703328588">
-  <project timestamp="1703328588">
+<coverage generated="1703332577">
+  <project timestamp="1703332577">
     <file name="/app/src/FaultCodeExceptionFactory.php">
       <class name="rocketfellows\ViesVatValidationInterface\FaultCodeExceptionFactory" namespace="global">
-        <metrics complexity="14" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="25" coveredelements="25"/>
+        <metrics complexity="14" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="26" coveredelements="26"/>
       </class>
-      <line num="23" type="method" name="create" visibility="public" complexity="14" crap="14" count="52"/>
-      <line num="25" type="stmt" count="52"/>
-      <line num="28" type="stmt" count="52"/>
-      <line num="29" type="stmt" count="4"/>
-      <line num="30" type="stmt" count="48"/>
-      <line num="31" type="stmt" count="4"/>
-      <line num="32" type="stmt" count="44"/>
-      <line num="33" type="stmt" count="4"/>
-      <line num="34" type="stmt" count="40"/>
-      <line num="35" type="stmt" count="4"/>
-      <line num="36" type="stmt" count="36"/>
-      <line num="37" type="stmt" count="4"/>
-      <line num="38" type="stmt" count="32"/>
-      <line num="39" type="stmt" count="4"/>
-      <line num="40" type="stmt" count="28"/>
-      <line num="41" type="stmt" count="4"/>
-      <line num="42" type="stmt" count="24"/>
-      <line num="43" type="stmt" count="4"/>
-      <line num="44" type="stmt" count="20"/>
-      <line num="45" type="stmt" count="4"/>
-      <line num="46" type="stmt" count="16"/>
-      <line num="47" type="stmt" count="4"/>
-      <line num="48" type="stmt" count="12"/>
-      <line num="49" type="stmt" count="4"/>
-      <line num="51" type="stmt" count="8"/>
-      <metrics loc="55" ncloc="55" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="25" coveredelements="25"/>
+      <line num="23" type="method" name="create" visibility="public" complexity="14" crap="14" count="64"/>
+      <line num="25" type="stmt" count="64"/>
+      <line num="26" type="stmt" count="64"/>
+      <line num="29" type="stmt" count="64"/>
+      <line num="30" type="stmt" count="5"/>
+      <line num="31" type="stmt" count="59"/>
+      <line num="32" type="stmt" count="5"/>
+      <line num="33" type="stmt" count="54"/>
+      <line num="34" type="stmt" count="5"/>
+      <line num="35" type="stmt" count="49"/>
+      <line num="36" type="stmt" count="5"/>
+      <line num="37" type="stmt" count="44"/>
+      <line num="38" type="stmt" count="5"/>
+      <line num="39" type="stmt" count="39"/>
+      <line num="40" type="stmt" count="5"/>
+      <line num="41" type="stmt" count="34"/>
+      <line num="42" type="stmt" count="5"/>
+      <line num="43" type="stmt" count="29"/>
+      <line num="44" type="stmt" count="5"/>
+      <line num="45" type="stmt" count="24"/>
+      <line num="46" type="stmt" count="5"/>
+      <line num="47" type="stmt" count="19"/>
+      <line num="48" type="stmt" count="5"/>
+      <line num="49" type="stmt" count="14"/>
+      <line num="50" type="stmt" count="5"/>
+      <line num="52" type="stmt" count="9"/>
+      <metrics loc="56" ncloc="56" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="26" coveredelements="26"/>
     </file>
     <file name="/app/src/FaultCodes.php">
       <metrics loc="19" ncloc="19" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -99,13 +100,13 @@
       <class name="rocketfellows\ViesVatValidationInterface\exceptions\service\UnknownServiceErrorException" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
       </class>
-      <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="12"/>
-      <line num="17" type="stmt" count="12"/>
-      <line num="19" type="stmt" count="12"/>
+      <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="13"/>
+      <line num="17" type="stmt" count="13"/>
+      <line num="19" type="stmt" count="13"/>
       <line num="22" type="method" name="getFaultCode" visibility="public" complexity="1" crap="1" count="4"/>
       <line num="24" type="stmt" count="4"/>
       <metrics loc="27" ncloc="27" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
     </file>
-    <metrics files="7" loc="263" ncloc="248" classes="4" methods="16" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="53" elements="69" coveredelements="69"/>
+    <metrics files="7" loc="264" ncloc="249" classes="4" methods="16" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="54" coveredstatements="54" elements="70" coveredelements="70"/>
   </project>
 </coverage>
