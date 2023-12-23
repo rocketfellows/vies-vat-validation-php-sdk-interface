@@ -190,6 +190,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new InvalidRequesterInfoServiceException(),
             ],
+            'fault code VAT_BLOCKED, message empty' => [
+                'faultCode' => 'VAT_BLOCKED',
+                'message' => '',
+                'expectedCreatedException' => new VatBlockedServiceException(),
+            ],
+            'fault code VAT_BLOCKED, message not empty' => [
+                'faultCode' => 'VAT_BLOCKED',
+                'message' => 'foo',
+                'expectedCreatedException' => new VatBlockedServiceException('foo'),
+            ],
+            'fault code VAT_BLOCKED, message is null' => [
+                'faultCode' => 'VAT_BLOCKED',
+                'message' => null,
+                'expectedCreatedException' => new VatBlockedServiceException(),
+            ],
         ];
     }
 }
