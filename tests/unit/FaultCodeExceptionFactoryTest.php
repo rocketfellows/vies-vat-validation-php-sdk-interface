@@ -145,6 +145,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new ServiceUnavailableException(),
             ],
+            'fault code MS_UNAVAILABLE, message empty' => [
+                'faultCode' => 'MS_UNAVAILABLE',
+                'message' => '',
+                'expectedCreatedException' => new MSUnavailableServiceException(),
+            ],
+            'fault code MS_UNAVAILABLE, message not empty' => [
+                'faultCode' => 'MS_UNAVAILABLE',
+                'message' => 'foo',
+                'expectedCreatedException' => new MSUnavailableServiceException('foo'),
+            ],
+            'fault code MS_UNAVAILABLE, message is null' => [
+                'faultCode' => 'MS_UNAVAILABLE',
+                'message' => null,
+                'expectedCreatedException' => new MSUnavailableServiceException(),
+            ],
         ];
     }
 }
