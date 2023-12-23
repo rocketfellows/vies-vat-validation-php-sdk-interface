@@ -47,49 +47,97 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'faultCode' => 'INVALID_INPUT',
                 'expectedCreatedException' => new InvalidInputServiceException(),
             ],
+            'fault code invalid_input' => [
+                'faultCode' => 'invalid_input',
+                'expectedCreatedException' => new InvalidInputServiceException(),
+            ],
             'fault code SERVICE_UNAVAILABLE' => [
                 'faultCode' => 'SERVICE_UNAVAILABLE',
+                'expectedCreatedException' => new ServiceUnavailableException(),
+            ],
+            'fault code service_unavailable' => [
+                'faultCode' => 'service_unavailable',
                 'expectedCreatedException' => new ServiceUnavailableException(),
             ],
             'fault code MS_UNAVAILABLE' => [
                 'faultCode' => 'MS_UNAVAILABLE',
                 'expectedCreatedException' => new MSUnavailableServiceException(),
             ],
+            'fault code ms_unavailable' => [
+                'faultCode' => 'ms_unavailable',
+                'expectedCreatedException' => new MSUnavailableServiceException(),
+            ],
             'fault code TIMEOUT' => [
                 'faultCode' => 'TIMEOUT',
+                'expectedCreatedException' => new TimeoutServiceException(),
+            ],
+            'fault code timeout' => [
+                'faultCode' => 'timeout',
                 'expectedCreatedException' => new TimeoutServiceException(),
             ],
             'fault code INVALID_REQUESTER_INFO' => [
                 'faultCode' => 'INVALID_REQUESTER_INFO',
                 'expectedCreatedException' => new InvalidRequesterInfoServiceException(),
             ],
+            'fault code invalid_requester_info' => [
+                'faultCode' => 'invalid_requester_info',
+                'expectedCreatedException' => new InvalidRequesterInfoServiceException(),
+            ],
             'fault code VAT_BLOCKED' => [
                 'faultCode' => 'VAT_BLOCKED',
+                'expectedCreatedException' => new VatBlockedServiceException(),
+            ],
+            'fault code vat_blocked' => [
+                'faultCode' => 'vat_blocked',
                 'expectedCreatedException' => new VatBlockedServiceException(),
             ],
             'fault code IP_BLOCKED' => [
                 'faultCode' => 'IP_BLOCKED',
                 'expectedCreatedException' => new IPBlockedServiceException(),
             ],
+            'fault code ip_blocked' => [
+                'faultCode' => 'ip_blocked',
+                'expectedCreatedException' => new IPBlockedServiceException(),
+            ],
             'fault code GLOBAL_MAX_CONCURRENT_REQ' => [
                 'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ',
+                'expectedCreatedException' => new GlobalMaxConcurrentReqServiceException(),
+            ],
+            'fault code global_max_concurrent_req' => [
+                'faultCode' => 'global_max_concurrent_req',
                 'expectedCreatedException' => new GlobalMaxConcurrentReqServiceException(),
             ],
             'fault code GLOBAL_MAX_CONCURRENT_REQ_TIME' => [
                 'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ_TIME',
                 'expectedCreatedException' => new GlobalMaxConcurrentReqTimeServiceException(),
             ],
+            'fault code global_max_concurrent_req_time' => [
+                'faultCode' => 'global_max_concurrent_req_time',
+                'expectedCreatedException' => new GlobalMaxConcurrentReqTimeServiceException(),
+            ],
             'fault code MS_MAX_CONCURRENT_REQ' => [
                 'faultCode' => 'MS_MAX_CONCURRENT_REQ',
+                'expectedCreatedException' => new MSMaxConcurrentReqServiceException(),
+            ],
+            'fault code ms_max_concurrent_req' => [
+                'faultCode' => 'ms_max_concurrent_req',
                 'expectedCreatedException' => new MSMaxConcurrentReqServiceException(),
             ],
             'fault code MS_MAX_CONCURRENT_REQ_TIME' => [
                 'faultCode' => 'MS_MAX_CONCURRENT_REQ_TIME',
                 'expectedCreatedException' => new MSMaxConcurrentReqTimeServiceException(),
             ],
-            'fault code unknown' => [
+            'fault code ms_max_concurrent_req_time' => [
+                'faultCode' => 'ms_max_concurrent_req_time',
+                'expectedCreatedException' => new MSMaxConcurrentReqTimeServiceException(),
+            ],
+            'fault code unknown in upper case' => [
+                'faultCode' => 'FOO_BAR',
+                'expectedCreatedException' => new UnknownServiceErrorException('FOO_BAR'),
+            ],
+            'fault code unknown in lower case' => [
                 'faultCode' => 'foo_bar',
-                'expectedCreatedException' => new UnknownServiceErrorException('foo_bar'),
+                'expectedCreatedException' => new UnknownServiceErrorException('FOO_BAR'),
             ],
             'fault code empty' => [
                 'faultCode' => '',
@@ -283,17 +331,17 @@ class FaultCodeExceptionFactoryTest extends TestCase
             'fault code unknown, message empty' => [
                 'faultCode' => 'foo_bar',
                 'message' => '',
-                'expectedCreatedException' => new UnknownServiceErrorException('foo_bar'),
+                'expectedCreatedException' => new UnknownServiceErrorException('FOO_BAR'),
             ],
             'fault code unknown, message is null' => [
                 'faultCode' => 'foo_bar',
                 'message' => null,
-                'expectedCreatedException' => new UnknownServiceErrorException('foo_bar'),
+                'expectedCreatedException' => new UnknownServiceErrorException('FOO_BAR'),
             ],
             'fault code unknown, message not empty' => [
                 'faultCode' => 'foo_bar',
                 'message' => 'foo',
-                'expectedCreatedException' => new UnknownServiceErrorException('foo_bar', 'foo'),
+                'expectedCreatedException' => new UnknownServiceErrorException('FOO_BAR', 'foo'),
             ],
             'fault code empty, message empty' => [
                 'faultCode' => '',
