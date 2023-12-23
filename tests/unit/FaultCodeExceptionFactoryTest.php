@@ -205,6 +205,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new VatBlockedServiceException(),
             ],
+            'fault code IP_BLOCKED, message empty' => [
+                'faultCode' => 'IP_BLOCKED',
+                'message' => '',
+                'expectedCreatedException' => new IPBlockedServiceException(),
+            ],
+            'fault code IP_BLOCKED, message not empty' => [
+                'faultCode' => 'IP_BLOCKED',
+                'message' => 'foo',
+                'expectedCreatedException' => new IPBlockedServiceException('foo'),
+            ],
+            'fault code IP_BLOCKED, message is null' => [
+                'faultCode' => 'IP_BLOCKED',
+                'message' => null,
+                'expectedCreatedException' => new IPBlockedServiceException(),
+            ],
         ];
     }
 }
