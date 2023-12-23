@@ -18,33 +18,33 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\VatNumberValidat
 
 class FaultCodeExceptionFactory
 {
-    public function create(string $faultCode): VatNumberValidationServiceException
+    public function create(string $faultCode, ?string $message = ''): VatNumberValidationServiceException
     {
         switch ($faultCode) {
             case FaultCodes::INVALID_INPUT:
-                return new InvalidInputServiceException();
+                return new InvalidInputServiceException($message);
             case FaultCodes::SERVICE_UNAVAILABLE:
-                return new ServiceUnavailableException();
+                return new ServiceUnavailableException($message);
             case FaultCodes::MS_UNAVAILABLE:
-                return new MSUnavailableServiceException();
+                return new MSUnavailableServiceException($message);
             case FaultCodes::TIMEOUT:
-                return new TimeoutServiceException();
+                return new TimeoutServiceException($message);
             case FaultCodes::INVALID_REQUESTER_INFO:
-                return new InvalidRequesterInfoServiceException();
+                return new InvalidRequesterInfoServiceException($message);
             case FaultCodes::VAT_BLOCKED:
-                return new VatBlockedServiceException();
+                return new VatBlockedServiceException($message);
             case FaultCodes::IP_BLOCKED:
-                return new IPBlockedServiceException();
+                return new IPBlockedServiceException($message);
             case FaultCodes::GLOBAL_MAX_CONCURRENT_REQ:
-                return new GlobalMaxConcurrentReqServiceException();
+                return new GlobalMaxConcurrentReqServiceException($message);
             case FaultCodes::GLOBAL_MAX_CONCURRENT_REQ_TIME:
-                return new GlobalMaxConcurrentReqTimeServiceException();
+                return new GlobalMaxConcurrentReqTimeServiceException($message);
             case FaultCodes::MS_MAX_CONCURRENT_REQ:
-                return new MSMaxConcurrentReqServiceException();
+                return new MSMaxConcurrentReqServiceException($message);
             case FaultCodes::MS_MAX_CONCURRENT_REQ_TIME:
-                return new MSMaxConcurrentReqTimeServiceException();
+                return new MSMaxConcurrentReqTimeServiceException($message);
             default:
-                return new UnknownServiceErrorException($faultCode);
+                return new UnknownServiceErrorException($faultCode, $message);
         }
     }
 }
