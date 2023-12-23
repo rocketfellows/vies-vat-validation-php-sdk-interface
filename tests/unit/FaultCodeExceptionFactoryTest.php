@@ -175,6 +175,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new TimeoutServiceException(),
             ],
+            'fault code INVALID_REQUESTER_INFO, message empty' => [
+                'faultCode' => 'INVALID_REQUESTER_INFO',
+                'message' => '',
+                'expectedCreatedException' => new InvalidRequesterInfoServiceException(),
+            ],
+            'fault code INVALID_REQUESTER_INFO, message not empty' => [
+                'faultCode' => 'INVALID_REQUESTER_INFO',
+                'message' => 'foo',
+                'expectedCreatedException' => new InvalidRequesterInfoServiceException('foo'),
+            ],
+            'fault code INVALID_REQUESTER_INFO, message is null' => [
+                'faultCode' => 'INVALID_REQUESTER_INFO',
+                'message' => null,
+                'expectedCreatedException' => new InvalidRequesterInfoServiceException(),
+            ],
         ];
     }
 }
