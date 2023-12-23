@@ -33,14 +33,14 @@ class FaultCodeExceptionFactoryTest extends TestCase
     }
 
     /**
-     * @dataProvider getCreateExceptionProvidedData
+     * @dataProvider getCreateExceptionWithoutMessageProvidedData
      */
-    public function testCreate(string $faultCode, Exception $expectedCreatedException): void
+    public function testCreateExceptionWithoutMessage(string $faultCode, Exception $expectedCreatedException): void
     {
         $this->assertEquals($expectedCreatedException, $this->faultCodeExceptionFactoryTest->create($faultCode));
     }
 
-    public function getCreateExceptionProvidedData(): array
+    public function getCreateExceptionWithoutMessageProvidedData(): array
     {
         return [
             'fault code INVALID_INPUT' => [
