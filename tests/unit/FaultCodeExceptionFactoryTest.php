@@ -220,6 +220,21 @@ class FaultCodeExceptionFactoryTest extends TestCase
                 'message' => null,
                 'expectedCreatedException' => new IPBlockedServiceException(),
             ],
+            'fault code GLOBAL_MAX_CONCURRENT_REQ, message empty' => [
+                'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ',
+                'message' => '',
+                'expectedCreatedException' => new GlobalMaxConcurrentReqServiceException(),
+            ],
+            'fault code GLOBAL_MAX_CONCURRENT_REQ, message not empty' => [
+                'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ',
+                'message' => 'foo',
+                'expectedCreatedException' => new GlobalMaxConcurrentReqServiceException('foo'),
+            ],
+            'fault code GLOBAL_MAX_CONCURRENT_REQ, message is null' => [
+                'faultCode' => 'GLOBAL_MAX_CONCURRENT_REQ',
+                'message' => null,
+                'expectedCreatedException' => new GlobalMaxConcurrentReqServiceException(),
+            ],
         ];
     }
 }
