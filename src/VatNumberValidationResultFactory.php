@@ -24,4 +24,9 @@ class VatNumberValidationResultFactory
         // TODO: implement
         return VatNumberValidationResult::create();
     }
+
+    private function convertCamelCasedAttributeNameToSnake(string $attrubuteName): string
+    {
+        return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $attrubuteName));
+    }
 }
