@@ -1,0 +1,7 @@
+<?php
+
+namespace rocketfellows\ViesVatValidationInterface\exceptions\validationResult;
+
+class VatOwnerAddressAttributeNotFoundException extends ValidatingVatNumberValidationResultException
+{
+}

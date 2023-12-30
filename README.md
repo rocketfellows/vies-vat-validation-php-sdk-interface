@@ -65,6 +65,18 @@ Description: `your Request for VAT validation has not been processed; the maximu
 
 `ServiceRequestException` - exception thrown if it was not possible to send a request to service (other errors).
 
+`CountryCodeAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` country code attribute not found.
+
+`RequestDateAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` request date attribute not found.
+
+`ValidationFlagAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` validation flag attribute not found.
+
+`VatNumberAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` vat number attribute not found.
+
+`VatOwnerAddressAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` vat owner address attribute not found.
+
+`VatOwnerNameAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` vat owner name attribute not found.
+
 ### Input arguments and return value.
 <hr>
 
@@ -88,7 +100,158 @@ So far, VIES provides two services for validating the VAT number:
 - SOAP web services API;
 - REST web services API.
 
-## Fault code exception factory
+## Vat number validation result factory.
+
+`rocketfellows\ViesVatValidationInterface\VatNumberValidationResultFactory` - a factory designed to create an instance of `rocketfellows\ViesVatValidationInterface\VatNumberValidationResult` from given raw data with required attributes existence check.
+
+Factory functions:
+- `public function createFromObject(stdClass $rawData): VatNumberValidationResult` - creates `VatNumberValidationResult` from `stdClass` object raw data;
+- `public function createFromArray(array $rawData): VatNumberValidationResult` - creates `VatNumberValidationResult` from array raw data.
+
+Functions throw next exceptions:
+- `CountryCodeAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` country code attribute not found.
+
+- `RequestDateAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` request date attribute not found.
+
+- `ValidationFlagAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` validation flag attribute not found.
+
+- `VatNumberAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` vat number attribute not found.
+
+- `VatOwnerAddressAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` vat owner address attribute not found.
+
+- `VatOwnerNameAttributeNotFoundException` - exception thrown if while creating instance of `VatNumberValidationResult` vat owner name attribute not found.
+
+### Usage examples.
+
+Creating `VatNumberValidationResult` from `stdClass` object raw data, where attribute names in raw data in camel case:
+
+```php
+$factory = new VatNumberValidationResultFactory();
+
+$vatNumberValidationResult = $factory->createFromObject(
+    (object) [
+        'countryCode' => 'DE',
+        'vatNumber' => '12312312',
+        'requestDate' => '2023-12-12 20:20:20',
+        'valid' => true,
+        'name' => 'fooBar',
+        'address' => 'barFoo',
+    ]
+);
+
+var_dump(sprintf('VAT country code: %s', $vatNumberValidationResult->getCountryCode()));
+var_dump(sprintf('VAT number: %s', $vatNumberValidationResult->getVatNumber()));
+var_dump(sprintf('Request date: %s', $vatNumberValidationResult->getRequestDateString()));
+var_dump(sprintf('Is VAT valid: %s', $vatNumberValidationResult->isValid() ? 'true' : 'false'));
+var_dump(sprintf('VAT holder name: %s', $vatNumberValidationResult->getName()));
+var_dump(sprintf('VAT holder address: %s', $vatNumberValidationResult->getAddress()));
+```
+```php
+VAT country code: DE
+VAT number: 12312312
+Request date: 2023-12-12 20:20:20
+Is VAT valid: true
+VAT holder name: fooBar
+VAT holder address: barFoo
+```
+
+Creating `VatNumberValidationResult` from `stdClass` object raw data, where attribute names in raw data in snake case:
+
+```php
+$factory = new VatNumberValidationResultFactory();
+
+$vatNumberValidationResult = $factory->createFromObject(
+    (object) [
+        'country_code' => 'DE',
+        'vat_number' => '12312312',
+        'request_date' => '2023-12-12 20:20:20',
+        'valid' => true,
+        'name' => 'fooBar',
+        'address' => 'barFoo',
+    ]
+);
+
+var_dump(sprintf('VAT country code: %s', $vatNumberValidationResult->getCountryCode()));
+var_dump(sprintf('VAT number: %s', $vatNumberValidationResult->getVatNumber()));
+var_dump(sprintf('Request date: %s', $vatNumberValidationResult->getRequestDateString()));
+var_dump(sprintf('Is VAT valid: %s', $vatNumberValidationResult->isValid() ? 'true' : 'false'));
+var_dump(sprintf('VAT holder name: %s', $vatNumberValidationResult->getName()));
+var_dump(sprintf('VAT holder address: %s', $vatNumberValidationResult->getAddress()));
+```
+```php
+VAT country code: DE
+VAT number: 12312312
+Request date: 2023-12-12 20:20:20
+Is VAT valid: true
+VAT holder name: fooBar
+VAT holder address: barFoo
+```
+
+Creating `VatNumberValidationResult` from array raw data, where attribute names in raw data in camel case:
+
+```php
+$factory = new VatNumberValidationResultFactory();
+
+$vatNumberValidationResult = $factory->createFromArray(
+    [
+        'countryCode' => 'DE',
+        'vatNumber' => '12312312',
+        'requestDate' => '2023-12-12 20:20:20',
+        'valid' => true,
+        'name' => 'fooBar',
+        'address' => 'barFoo',
+    ]
+);
+
+var_dump(sprintf('VAT country code: %s', $vatNumberValidationResult->getCountryCode()));
+var_dump(sprintf('VAT number: %s', $vatNumberValidationResult->getVatNumber()));
+var_dump(sprintf('Request date: %s', $vatNumberValidationResult->getRequestDateString()));
+var_dump(sprintf('Is VAT valid: %s', $vatNumberValidationResult->isValid() ? 'true' : 'false'));
+var_dump(sprintf('VAT holder name: %s', $vatNumberValidationResult->getName()));
+var_dump(sprintf('VAT holder address: %s', $vatNumberValidationResult->getAddress()));
+```
+```php
+VAT country code: DE
+VAT number: 12312312
+Request date: 2023-12-12 20:20:20
+Is VAT valid: true
+VAT holder name: fooBar
+VAT holder address: barFoo
+```
+
+Creating `VatNumberValidationResult` from array raw data, where attribute names in raw data in snake case:
+
+```php
+$factory = new VatNumberValidationResultFactory();
+
+$vatNumberValidationResult = $factory->createFromArray(
+    [
+        'country_code' => 'DE',
+        'vat_number' => '12312312',
+        'request_date' => '2023-12-12 20:20:20',
+        'valid' => true,
+        'name' => 'fooBar',
+        'address' => 'barFoo',
+    ]
+);
+
+var_dump(sprintf('VAT country code: %s', $vatNumberValidationResult->getCountryCode()));
+var_dump(sprintf('VAT number: %s', $vatNumberValidationResult->getVatNumber()));
+var_dump(sprintf('Request date: %s', $vatNumberValidationResult->getRequestDateString()));
+var_dump(sprintf('Is VAT valid: %s', $vatNumberValidationResult->isValid() ? 'true' : 'false'));
+var_dump(sprintf('VAT holder name: %s', $vatNumberValidationResult->getName()));
+var_dump(sprintf('VAT holder address: %s', $vatNumberValidationResult->getAddress()));
+```
+```php
+VAT country code: DE
+VAT number: 12312312
+Request date: 2023-12-12 20:20:20
+Is VAT valid: true
+VAT holder name: fooBar
+VAT holder address: barFoo
+```
+
+## Fault code exception factory.
 
 `rocketfellows\ViesVatValidationInterface\FaultCodeExceptionFactory` - a factory designed to create exceptions based on an error code that the VAT number validation service can return.
 Error code detection is case insensitive.
