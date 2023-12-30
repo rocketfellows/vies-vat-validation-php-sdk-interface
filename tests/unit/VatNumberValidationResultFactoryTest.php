@@ -17,4 +17,9 @@ class VatNumberValidationResultFactoryTest extends TestCase
 
         $this->vatNumberValidationResultFactory = new VatNumberValidationResultFactory();
     }
+
+    public function testVatNumberValidationResultSuccessfullyCreatedFromObject(): void
+    {
+        // TODO: implement
+    }
 }
