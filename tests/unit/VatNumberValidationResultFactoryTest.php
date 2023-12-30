@@ -72,6 +72,24 @@ class VatNumberValidationResultFactoryTest extends TestCase
                     'address' => 'barFoo',
                 ],
             ],
+            'all required attributes exists in camel case and empty, vat is valid' => [
+                'rawData' => (object) [
+                    'countryCode' => '',
+                    'vatNumber' => '',
+                    'requestDate' => '',
+                    'valid' => true,
+                    'name' => '',
+                    'address' => '',
+                ],
+                'expectedVatNumberValidationResultData' => [
+                    'countryCode' => '',
+                    'vatNumber' => '',
+                    'requestDate' => '',
+                    'valid' => true,
+                    'name' => '',
+                    'address' => '',
+                ],
+            ],
         ];
     }
 
