@@ -36,9 +36,23 @@ class VatNumberValidationResultFactoryTest extends TestCase
     public function getVatNumberValidationResultCreateFromObjectProvidedData(): array
     {
         return [
-            [
-                'rawData',
-                'expectedVatNumberValidationResult',
+            'all required attributes exists in camel case and set, vat is valid' => [
+                'rawData' => (object) [
+                    'countryCode' => 'DE',
+                    'vatNumber' => '12312312',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'valid' => true,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+                'expectedVatNumberValidationResultData' => [
+                    'countryCode' => 'DE',
+                    'vatNumber' => '12312312',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'valid' => true,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
             ],
         ];
     }
