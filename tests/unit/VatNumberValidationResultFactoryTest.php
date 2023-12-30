@@ -108,6 +108,78 @@ class VatNumberValidationResultFactoryTest extends TestCase
                     'address' => '',
                 ],
             ],
+            'all required attributes exists in snake case and set, vat is valid' => [
+                'rawData' => (object) [
+                    'country_code' => 'DE',
+                    'vat_number' => '12312312',
+                    'request_date' => '2023-12-12 20:20:20',
+                    'valid' => true,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+                'expectedVatNumberValidationResultData' => [
+                    'countryCode' => 'DE',
+                    'vatNumber' => '12312312',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'valid' => true,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+            ],
+            'all required attributes exists in snake case and set, vat is not valid' => [
+                'rawData' => (object) [
+                    'country_code' => 'DE',
+                    'vat_number' => '12312312',
+                    'request_date' => '2023-12-12 20:20:20',
+                    'valid' => false,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+                'expectedVatNumberValidationResultData' => [
+                    'countryCode' => 'DE',
+                    'vatNumber' => '12312312',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'valid' => false,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+            ],
+            'all required attributes exists in snake case and empty, vat is valid' => [
+                'rawData' => (object) [
+                    'country_code' => '',
+                    'vat_number' => '',
+                    'request_date' => '',
+                    'valid' => true,
+                    'name' => '',
+                    'address' => '',
+                ],
+                'expectedVatNumberValidationResultData' => [
+                    'countryCode' => '',
+                    'vatNumber' => '',
+                    'requestDate' => '',
+                    'valid' => true,
+                    'name' => '',
+                    'address' => '',
+                ],
+            ],
+            'all required attributes exists in snake case and empty, vat is not valid' => [
+                'rawData' => (object) [
+                    'country_code' => '',
+                    'vat_number' => '',
+                    'request_date' => '',
+                    'valid' => false,
+                    'name' => '',
+                    'address' => '',
+                ],
+                'expectedVatNumberValidationResultData' => [
+                    'countryCode' => '',
+                    'vatNumber' => '',
+                    'requestDate' => '',
+                    'valid' => false,
+                    'name' => '',
+                    'address' => '',
+                ],
+            ],
         ];
     }
 
