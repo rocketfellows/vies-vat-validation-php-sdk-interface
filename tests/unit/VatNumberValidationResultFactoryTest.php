@@ -346,6 +346,84 @@ class VatNumberValidationResultFactoryTest extends TestCase
         ];
     }
 
+    /**
+     * @dataProvider getVatNumberValidationResultCreateFromInvalidObjectProvidedData
+     */
+    public function testCantCreateVatNumberValidationResultFromObjectCauseException(
+        stdClass $rawData,
+        string $expectedExceptionClass
+    ): void {
+        $this->expectException($expectedExceptionClass);
+
+        $this->vatNumberValidationResultFactory->createFromObject($rawData);
+    }
+
+    public function getVatNumberValidationResultCreateFromInvalidObjectProvidedData(): array
+    {
+        return [
+            'attributes in camel case, country code attribute not exists' => [
+                'rawData' => (object) [
+                    'vatNumber' => '12312312',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'valid' => true,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+                'expectedExceptionClass' => CountryCodeAttributeNotFoundExceptio::class,
+            ],
+            'attributes in camel case, vat number attribute not exists' => [
+                'rawData' => (object) [
+                    'countryCode' => 'DE',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'valid' => true,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+                'expectedExceptionClass' => VatNumberAttributeNotFoundException::class,
+            ],
+            'attributes in camel case, request date attribute not exists' => [
+                'rawData' => (object) [
+                    'countryCode' => 'DE',
+                    'vatNumber' => '12312312',
+                    'valid' => true,
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+                'expectedExceptionClass' => RequestDateAttributeNotFoundException::class,
+            ],
+            'attributes in camel case, validation flag attribute not exists' => [
+                'rawData' => (object) [
+                    'countryCode' => 'DE',
+                    'vatNumber' => '12312312',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'name' => 'fooBar',
+                    'address' => 'barFoo',
+                ],
+                'expectedExceptionClass' => ValidationFlagAttributeNotFoundException::class,
+            ],
+            'attributes in camel case, vat owner name attribute not exists' => [
+                'rawData' => (object) [
+                    'countryCode' => 'DE',
+                    'vatNumber' => '12312312',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'valid' => true,
+                    'address' => 'barFoo',
+                ],
+                'expectedExceptionClass' => VatOwnerNameAttributeNotFoundException::class,
+            ],
+            'attributes in camel case, vat owner address attribute not exists' => [
+                'rawData' => (object) [
+                    'countryCode' => 'DE',
+                    'vatNumber' => '12312312',
+                    'requestDate' => '2023-12-12 20:20:20',
+                    'valid' => true,
+                    'name' => 'fooBar',
+                ],
+                'expectedExceptionClass' => VatOwnerAddressAttributeNotFoundException::class,
+            ],
+        ];
+    }
+
     private function assertVatNumberValidationResultEqualExpected(
         array $expectedVatNumberValidationResultData,
         VatNumberValidationResult $actualVatNumberValidationResult
