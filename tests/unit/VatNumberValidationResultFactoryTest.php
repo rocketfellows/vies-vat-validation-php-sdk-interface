@@ -22,4 +22,11 @@ class VatNumberValidationResultFactoryTest extends TestCase
     {
         // TODO: implement
     }
+
+    public function getVatNumberValidationResultCreateFromObjectProvidedData(): array
+    {
+        return [
+            [],
+        ];
+    }
 }
