@@ -90,26 +90,103 @@ class VatNumberValidationResultFactory
         );
     }
 
+    /**
+     * @throws CountryCodeAttributeNotFoundException
+     * @throws RequestDateAttributeNotFoundException
+     * @throws ValidationFlagAttributeNotFoundException
+     * @throws VatNumberAttributeNotFoundException
+     * @throws VatOwnerAddressAttributeNotFoundException
+     * @throws VatOwnerNameAttributeNotFoundException
+     */
     public function createFromArray(array $rawData): VatNumberValidationResult
     {
-        // TODO: implement
-        return VatNumberValidationResult::create();
+        $countryCodeAttributeName = $this->getCasedExistedAttributeNameInArray(
+            $rawData,
+            self::ATTRIBUTE_NAME_COUNTRY_CODE
+        );
+        $vatNumberAttributeName = $this->getCasedExistedAttributeNameInArray(
+            $rawData,
+            self::ATTRIBUTE_NAME_VAT_NUMBER
+        );
+        $requestDateAttributeName = $this->getCasedExistedAttributeNameInArray(
+            $rawData,
+            self::ATTRIBUTE_NAME_REQUEST_DATE
+        );
+        $validationFlagAttributeName = $this->getCasedExistedAttributeNameInArray(
+            $rawData,
+            self::ATTRIBUTE_NAME_VALIDATION_FLAG
+        );
+        $varOwnerNameAttributeName = $this->getCasedExistedAttributeNameInArray(
+            $rawData,
+            self::ATTRIBUTE_NAME_VAT_OWNER_NAME
+        );
+        $varOwnerAddressAttributeName = $this->getCasedExistedAttributeNameInArray(
+            $rawData,
+            self::ATTRIBUTE_NAME_VAT_OWNER_ADDRESS
+        );
+
+        if (is_null($countryCodeAttributeName)) {
+            throw new CountryCodeAttributeNotFoundException();
+        }
+
+        if (is_null($vatNumberAttributeName)) {
+            throw new VatNumberAttributeNotFoundException();
+        }
+
+        if (is_null($requestDateAttributeName)) {
+            throw new RequestDateAttributeNotFoundException();
+        }
+
+        if (is_null($validationFlagAttributeName)) {
+            throw new ValidationFlagAttributeNotFoundException();
+        }
+
+        if (is_null($varOwnerNameAttributeName)) {
+            throw new VatOwnerNameAttributeNotFoundException();
+        }
+
+        if (is_null($varOwnerAddressAttributeName)) {
+            throw new VatOwnerAddressAttributeNotFoundException();
+        }
+
+        return VatNumberValidationResult::create(
+            VatNumber::create(
+                (string) $rawData[$countryCodeAttributeName],
+                (string) $rawData[$vatNumberAttributeName]
+            ),
+            (string) $rawData[$requestDateAttributeName],
+            (bool) $rawData[$validationFlagAttributeName],
+            (string) $rawData[$varOwnerNameAttributeName],
+            (string) $rawData[$varOwnerAddressAttributeName]
+        );
     }
 
     private function getCasedExistedAttributeNameInObject(stdClass $rawData, string $needleAttributeName): ?string
     {
-        $foundAttributeName = null;
-
         if (property_exists($rawData, $needleAttributeName)) {
-            $foundAttributeName = $needleAttributeName;
+            return $needleAttributeName;
         }
 
         $needleCamelCasedAttributeName = $this->convertCamelCasedAttributeNameToSnake($needleAttributeName);
         if (property_exists($rawData, $needleCamelCasedAttributeName)) {
-            $foundAttributeName = $needleCamelCasedAttributeName;
+            return $needleCamelCasedAttributeName;
         }
 
-        return $foundAttributeName;
+        return null;
+    }
+
+    private function getCasedExistedAttributeNameInArray(array $rawData, string $needleAttributeName): ?string
+    {
+        if (array_key_exists($needleAttributeName, $rawData)) {
+            return $needleAttributeName;
+        }
+
+        $needleCamelCasedAttributeName = $this->convertCamelCasedAttributeNameToSnake($needleAttributeName);
+        if (array_key_exists($needleCamelCasedAttributeName, $rawData)) {
+            return $needleCamelCasedAttributeName;
+        }
+
+        return null;
     }
 
     private function convertCamelCasedAttributeNameToSnake(string $attrubuteName): string
