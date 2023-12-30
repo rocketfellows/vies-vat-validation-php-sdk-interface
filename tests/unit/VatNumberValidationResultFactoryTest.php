@@ -3,6 +3,12 @@
 namespace rocketfellows\ViesVatValidationInterface\tests\unit;
 
 use PHPUnit\Framework\TestCase;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\CountryCodeAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\RequestDateAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\ValidationFlagAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatNumberAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatOwnerAddressAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatOwnerNameAttributeNotFoundException;
 use rocketfellows\ViesVatValidationInterface\VatNumberValidationResult;
 use stdClass;
 
@@ -369,7 +375,7 @@ class VatNumberValidationResultFactoryTest extends TestCase
                     'name' => 'fooBar',
                     'address' => 'barFoo',
                 ],
-                'expectedExceptionClass' => CountryCodeAttributeNotFoundExceptio::class,
+                'expectedExceptionClass' => CountryCodeAttributeNotFoundException::class,
             ],
             'attributes in camel case, vat number attribute not exists' => [
                 'rawData' => (object) [
@@ -429,7 +435,7 @@ class VatNumberValidationResultFactoryTest extends TestCase
                     'name' => 'fooBar',
                     'address' => 'barFoo',
                 ],
-                'expectedExceptionClass' => CountryCodeAttributeNotFoundExceptio::class,
+                'expectedExceptionClass' => CountryCodeAttributeNotFoundException::class,
             ],
             'attributes in snake case, vat number attribute not exists' => [
                 'rawData' => (object) [
@@ -507,7 +513,7 @@ class VatNumberValidationResultFactoryTest extends TestCase
                     'name' => 'fooBar',
                     'address' => 'barFoo',
                 ],
-                'expectedExceptionClass' => CountryCodeAttributeNotFoundExceptio::class,
+                'expectedExceptionClass' => CountryCodeAttributeNotFoundException::class,
             ],
             'attributes in camel case, vat number attribute not exists' => [
                 'rawData' => [
@@ -567,7 +573,7 @@ class VatNumberValidationResultFactoryTest extends TestCase
                     'name' => 'fooBar',
                     'address' => 'barFoo',
                 ],
-                'expectedExceptionClass' => CountryCodeAttributeNotFoundExceptio::class,
+                'expectedExceptionClass' => CountryCodeAttributeNotFoundException::class,
             ],
             'attributes in snake case, vat number attribute not exists' => [
                 'rawData' => [
