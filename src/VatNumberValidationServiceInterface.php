@@ -15,6 +15,12 @@ use rocketfellows\ViesVatValidationInterface\exceptions\service\TimeoutServiceEx
 use rocketfellows\ViesVatValidationInterface\exceptions\service\UnknownServiceErrorException;
 use rocketfellows\ViesVatValidationInterface\exceptions\service\VatBlockedServiceException;
 use rocketfellows\ViesVatValidationInterface\exceptions\ServiceRequestException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\CountryCodeAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\RequestDateAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\ValidationFlagAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatNumberAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatOwnerAddressAttributeNotFoundException;
+use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatOwnerNameAttributeNotFoundException;
 
 interface VatNumberValidationServiceInterface
 {
@@ -32,6 +38,12 @@ interface VatNumberValidationServiceInterface
      * @throws MSMaxConcurrentReqTimeServiceException
      * @throws UnknownServiceErrorException
      * @throws ServiceRequestException
+     * @throws CountryCodeAttributeNotFoundException
+     * @throws RequestDateAttributeNotFoundException
+     * @throws ValidationFlagAttributeNotFoundException
+     * @throws VatNumberAttributeNotFoundException
+     * @throws VatOwnerAddressAttributeNotFoundException
+     * @throws VatOwnerNameAttributeNotFoundException
      */
     public function validateVat(VatNumber $vatNumber): VatNumberValidationResult;
 }
