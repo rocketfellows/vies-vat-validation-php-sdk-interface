@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1703933126">
-  <project timestamp="1703933126">
+<coverage generated="1703934675">
+  <project timestamp="1703934675">
     <file name="/app/src/FaultCodeExceptionFactory.php">
       <class name="rocketfellows\ViesVatValidationInterface\FaultCodeExceptionFactory" namespace="global">
         <metrics complexity="14" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="26" coveredelements="26"/>
@@ -204,7 +204,7 @@
       <metrics loc="197" ncloc="181" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="105" coveredstatements="105" elements="110" coveredelements="110"/>
     </file>
     <file name="/app/src/VatNumberValidationServiceInterface.php">
-      <metrics loc="38" ncloc="23" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="50" ncloc="29" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/app/src/exceptions/ServiceRequestException.php">
       <class name="rocketfellows\ViesVatValidationInterface\exceptions\ServiceRequestException" namespace="global">
@@ -265,6 +265,6 @@
       </class>
       <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="15" loc="519" ncloc="488" classes="5" methods="21" coveredmethods="21" conditionals="0" coveredconditionals="0" statements="159" coveredstatements="159" elements="180" coveredelements="180"/>
+    <metrics files="15" loc="531" ncloc="494" classes="5" methods="21" coveredmethods="21" conditionals="0" coveredconditionals="0" statements="159" coveredstatements="159" elements="180" coveredelements="180"/>
   </project>
 </coverage>
