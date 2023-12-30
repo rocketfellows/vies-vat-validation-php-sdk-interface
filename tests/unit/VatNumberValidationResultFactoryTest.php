@@ -9,4 +9,12 @@ use PHPUnit\Framework\TestCase;
  */
 class VatNumberValidationResultFactoryTest extends TestCase
 {
+    private $vatNumberValidationResultFactory;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->vatNumberValidationResultFactory = new VatNumberValidationResultFactory();
+    }
 }
