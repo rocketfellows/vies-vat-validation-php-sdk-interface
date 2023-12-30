@@ -1,0 +1,9 @@
+<?php
+
+namespace rocketfellows\ViesVatValidationInterface\exceptions\validationResult;
+
+use rocketfellows\ViesVatValidationInterface\exceptions\VatNumberValidationException;
+
+abstract class ValidatingVatNumberValidationResultException extends VatNumberValidationException
+{
+}
