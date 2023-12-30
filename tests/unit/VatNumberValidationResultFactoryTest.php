@@ -455,7 +455,7 @@ class VatNumberValidationResultFactoryTest extends TestCase
                 'rawData' => (object) [
                     'country_code' => 'DE',
                     'vat_number' => '12312312',
-                    'requestDate' => '2023-12-12 20:20:20',
+                    'request_date' => '2023-12-12 20:20:20',
                     'name' => 'fooBar',
                     'address' => 'barFoo',
                 ],
@@ -593,7 +593,7 @@ class VatNumberValidationResultFactoryTest extends TestCase
                 'rawData' => [
                     'country_code' => 'DE',
                     'vat_number' => '12312312',
-                    'requestDate' => '2023-12-12 20:20:20',
+                    'request_date' => '2023-12-12 20:20:20',
                     'name' => 'fooBar',
                     'address' => 'barFoo',
                 ],
