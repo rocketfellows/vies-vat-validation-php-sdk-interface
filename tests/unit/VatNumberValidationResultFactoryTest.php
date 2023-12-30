@@ -10,6 +10,7 @@ use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatNumb
 use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatOwnerAddressAttributeNotFoundException;
 use rocketfellows\ViesVatValidationInterface\exceptions\validationResult\VatOwnerNameAttributeNotFoundException;
 use rocketfellows\ViesVatValidationInterface\VatNumberValidationResult;
+use rocketfellows\ViesVatValidationInterface\VatNumberValidationResultFactory;
 use stdClass;
 
 /**
